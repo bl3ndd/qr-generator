@@ -1,28 +1,67 @@
 <template>
   <div class="container">
-    <h1 class="title">Generate QR code</h1>
-    <section class="container-inner">
-      <div class="controls">
-        <div tabindex="0" class="input-control">
-          <input type="text" v-model="qrString" class="qr-input" placeholder="Enter URL" />
+    <header>
+      <h1 id="qr-title" class="title">Generate QR Code</h1>
+    </header>
+
+    <main class="main">
+      <section class="container-inner" aria-labelledby="qr-title">
+        <div class="controls">
+          <label for="qr-input" class="visually-hidden">Enter the URL or text for QR code generation</label>
+
+          <input
+              type="text"
+              id="qr-input"
+              v-model="qrString"
+              class="qr-input"
+              placeholder="Enter URL or text"
+              aria-required="true"
+              aria-describedby="input-help"
+          />
+
+          <button
+              type="button"
+              @click="generateToCanvas"
+              :disabled="!qrString"
+              class="qr-button"
+              aria-label="Generate QR Code"
+          >
+            Generate
+          </button>
         </div>
-        <button @click="generateToCanvas" :disabled="!qrString" class="qr-button">Generate</button>
-      </div>
-      <div class="qr">
-        <canvas ref="canvasEl" class="canvas" />
-        <button class="download-button" @click="saveToFile">
-          <img src="@/assets/img/download-icon.svg" alt="download icon" class="icon">
-          <span>Download</span>
-        </button>
-      </div>
-    </section>
+
+        <div class="qr" aria-live="polite">
+          <canvas
+              ref="canvasEl"
+              class="canvas"
+              role="img"
+              aria-label="QR Code Canvas"
+          />
+
+          <button
+              type="button"
+              class="download-button"
+              @click="saveToFile"
+              aria-label="Download QR Code"
+          >
+            <img
+                src="@/assets/img/download-icon.svg"
+                alt="Download icon"
+                class="icon"
+            />
+            <span>Download</span>
+          </button>
+        </div>
+      </section>
+    </main>
   </div>
+
 </template>
 
 <script setup lang="ts">
 import { toCanvas } from 'qrcode';
 
-const qrString = ref(location?.origin || "")
+const qrString = ref('https://qrwithme.vercel.app/')
 const canvasEl = ref<HTMLCanvasElement>()
 
 const generateToCanvas = () => {
@@ -72,7 +111,10 @@ onMounted(() => {
 .title {
   margin-top: 100px;
   font-size: 60px;
+}
 
+.main {
+  width: 100%;
 }
 
 .container-inner {
@@ -100,16 +142,20 @@ onMounted(() => {
 
 .qr-input {
   width: 100%;
-  padding: 0;
-  margin: 0;
-  font-size: 18px;
+  font-size: 20px;
+  font-family: Roboto;
   outline: none;
   border: none;
-  height: 32px;
+  height: 52px;
+  padding: 6px;
+  background: white;
+  border-radius: 8px;
+  margin-bottom: 20px;
 }
 
 .qr-input::placeholder {
   font-size: 18px;
+  font-family: Roboto;
 }
 
 .canvas {
@@ -158,6 +204,19 @@ onMounted(() => {
   align-items: center;
   gap: 4px;
 }
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 
 @media screen and (max-width: 960px) {
   .container-inner {
