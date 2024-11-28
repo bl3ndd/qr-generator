@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <h1 class="title">Generate QR code</h1>
-    <div class="container-inner">
+    <section class="container-inner">
       <div class="controls">
         <div tabindex="0" class="input-control">
           <input type="text" v-model="qrString" class="qr-input" placeholder="Enter URL" />
@@ -15,7 +15,7 @@
           <span>Download</span>
         </button>
       </div>
-    </div>
+    </section>
   </div>
 </template>
 
@@ -50,7 +50,7 @@ useHead({
   meta: [
     { name: "og:locale", content: 'en_US' },
     { name: "og:site_name", content: "QR generator" },
-    { name: 'og:description', content: 'Generate QR code in one second' },
+    { name: 'og:description', content: 'Generate QR code fast and easy' },
   ]
 })
 
