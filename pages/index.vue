@@ -22,7 +22,7 @@
 <script setup lang="ts">
 import { toCanvas } from 'qrcode';
 
-const qrString = ref(location.origin)
+const qrString = ref(location?.origin || "")
 const canvasEl = ref<HTMLCanvasElement>()
 
 const generateToCanvas = () => {
