@@ -3,8 +3,12 @@
     <nuxt-layout>
       <nuxt-page />
     </nuxt-layout>
+    <analytics />
   </div>
 </template>
+<script setup lang="ts">
+import { Analytics } from '@vercel/analytics/nuxt'
+</script>
 <style>
 body {
   background: #121212;
