@@ -45,6 +45,15 @@ const saveToFile = () => {
   link.click();
 }
 
+useHead({
+  title: "QR code generator",
+  meta: [
+    { name: "og:locale", content: 'en_US' },
+    { name: "og:site_name", content: "QR generator" },
+    { name: 'og:description', content: 'Generate QR code in one second' },
+  ]
+})
+
 onMounted(() => {
   generateToCanvas()
 })
