@@ -7,8 +7,20 @@
     <main class="main">
       <section class="container-inner" aria-labelledby="qr-title">
         <div class="controls">
-          <label for="qr-input" class="visually-hidden">Enter the URL or text for QR code generation</label>
+          <div class="colors">
 
+            <div class="color-picker">
+              <label for="dark-color" class="color-picker-label">Select dark color</label>
+              <input v-model="darkColor" type="color" id="dark-color">
+            </div>
+
+            <div class="color-picker">
+              <label for="light-color" class="color-picker-label">Select light color:</label>
+              <input v-model="lightColor" type="color" id="light-color">
+              </div>
+          </div>
+
+          <label for="qr-input" class="visually-hidden">Enter the URL or text for QR code generation</label>
           <input
               type="text"
               id="qr-input"
@@ -59,14 +71,21 @@
 </template>
 
 <script setup lang="ts">
-import { toCanvas } from 'qrcode';
+import {type QRCodeRenderersOptions, toCanvas} from 'qrcode';
 
 const qrString = ref('https://qrwithme.vercel.app/')
 const canvasEl = ref<HTMLCanvasElement>()
 
+const darkColor = ref('#000000')
+const lightColor = ref('#FFFFFF')
+
 const generateToCanvas = () => {
-  const options = {
+  const options: QRCodeRenderersOptions = {
     margin: 1,
+    color: {
+      dark: darkColor.value,
+      light: lightColor.value,
+    },
     width: 400
   }
 
@@ -92,6 +111,9 @@ useHead({
     { name: 'og:description', content: 'Generate QR code fast and easy' },
   ]
 })
+
+watch(darkColor, generateToCanvas)
+watch(lightColor, generateToCanvas)
 
 onMounted(() => {
   generateToCanvas()
@@ -133,11 +155,27 @@ onMounted(() => {
   justify-content: center;
 }
 
-.input-control {
-  padding: 6px;
-  background: white;
-  border-radius: 8px;
+.colors {
+  display: flex;
   margin-bottom: 20px;
+}
+
+.color-picker {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+}
+
+.color-picker input {
+  width: 190px;
+  border: none;
+  box-shadow: none;
+}
+
+.color-picker-label {
+  font-family: Roboto;
+  font-size: 20px;
+  margin-bottom: 4px;
 }
 
 .qr-input {
