@@ -259,8 +259,12 @@ onMounted(() => {
 @media screen and (max-width: 960px) {
   .container-inner {
     flex-direction: column-reverse;
-    gap: 40px;
+    gap: 20px;
     height: auto;
+  }
+
+  .qr {
+    gap: 20px;
   }
 
   .title {
@@ -275,6 +279,16 @@ onMounted(() => {
 
   .controls {
     max-width: 300px;
+  }
+
+  .colors {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .color-picker input {
+    width: 300px;
   }
 }
 </style>
