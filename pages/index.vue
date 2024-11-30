@@ -170,6 +170,7 @@ onMounted(() => {
   width: 190px;
   border: none;
   box-shadow: none;
+  border-radius: 0;
 }
 
 .color-picker-label {
