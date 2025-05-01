@@ -32,6 +32,10 @@ export async function generateMetadata({ params }: { params: { locale: string } 
             locale: params.locale,
             type: 'website',
         },
+        icons: {
+            icon: '/favicon.ico',
+            shortcut: '/favicon.ico',
+        },
     };
 }
 
