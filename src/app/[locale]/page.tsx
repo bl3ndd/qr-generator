@@ -3,7 +3,7 @@ import DownloadVideo from "@/app/components/DownloadVideo";
 
 
 type Props = {
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 };
 
 export async function generateMetadata({ params: { locale } }: Props) {
