@@ -1,4 +1,9 @@
+# *
 User-agent: *
 Allow: /
 
-Sitemap: https://example.com/sitemap.xml
+# Host
+Host: https://qrgen.cutbg.org/
+
+# Sitemaps
+Sitemap: https://qrgen.cutbg.org/sitemap.xml
