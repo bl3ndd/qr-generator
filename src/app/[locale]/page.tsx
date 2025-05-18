@@ -1,5 +1,5 @@
 import { getTranslations } from 'next-intl/server';
-import DownloadVideo from "@/app/components/DownloadVideo";
+import QrGenerator from "@/app/components/QrGenerator";
 
 
 type Props = {
@@ -19,6 +19,6 @@ export async function generateMetadata({ params }: Props) {
 
 export default function Index() {
   return (
-        <DownloadVideo />
+        <QrGenerator />
   );
 }

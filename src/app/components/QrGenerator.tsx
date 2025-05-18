@@ -6,8 +6,7 @@ import {ColorPicker} from "@/app/components/ColorPicker";
 
 import { useTranslations } from 'next-intl';
 
-import {logEvent} from "firebase/analytics";
-import {analytics, AnalyticsEvents} from "@/analytic";
+import LanguageSwitcher from "@/app/components/LanguageSwitcher";
 
 export default function QRCodeGenerator() {
     const t = useTranslations();
@@ -63,6 +62,7 @@ export default function QRCodeGenerator() {
                 {t('title')}
             </h1>
 
+            <LanguageSwitcher />
             <div className="max-w-6xl bg-white shadow-2xl rounded-3xl p-8 flex flex-col md:flex-row gap-10 items-center">
                 {/* Left Panel */}
                 <div className="md:w-1/2 flex flex-col gap-6">
