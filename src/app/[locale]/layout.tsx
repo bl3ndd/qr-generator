@@ -9,7 +9,7 @@ import {appName} from "../../../config";
 
 export async function generateMetadata({ params }: { params: { locale: string } }): Promise<Metadata> {
     const messages = await getMessages();
-
+    const { locale } = await params
     return {
         title: {
             default: messages.seo.title,
@@ -29,7 +29,7 @@ export async function generateMetadata({ params }: { params: { locale: string } 
                     alt: messages.seo.title,
                 },
             ],
-            locale: params.locale,
+            locale: locale,
             type: 'website',
         },
         icons: {

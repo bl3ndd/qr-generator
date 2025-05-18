@@ -16,18 +16,25 @@ module.exports = {
     priority: 0.7,
     sitemapSize: 5000,
     generateRobotsTxt: true,
-    // transform: async (config, path) => {
-    //     return {
-    //         loc: path,
-    //         changefreq: config.changefreq,
-    //         priority: config.priority,
-    //         lastmod: new Date().toISOString(),
-    //         alternateRefs: locales.map(locale => ({
-    //             href: `${config.siteUrl}/${locale}${path}`,
-    //             hreflang: locale,
-    //         })),
-    //     };
-    // },
+    transform: async (config, path) => {
+        return {
+            loc: path,
+            changefreq: config.changefreq,
+            priority: config.priority,
+            lastmod: new Date().toISOString(),
+            alternateRefs: locales.map(locale => {
+                console.log(locale, {
+                    href: `${config.siteUrl}/`,
+                    hreflang: locale,
+                })
+                return {
+                    href: `${config.siteUrl}/`,
+                    hreflang: locale,
+                }
+
+            }),
+        };
+    },
 
     additionalPaths: async (config) => {
         const allPaths = [];
