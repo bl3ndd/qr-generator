@@ -1,7 +1,8 @@
 'use client'
 
-import { usePathname, useRouter } from 'next/navigation'
-import Image from 'next/image'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
+import clsx from 'clsx'
 
 const languages = [
     { code: "cn", label: "中文", emoji: "🇨🇳" },
@@ -25,38 +26,29 @@ const languages = [
     { code: "vi", label: "Tiếng Việt", emoji: "🇻🇳" },
 ]
 
-
-export default function LanguageSwitcher() {
-    const router = useRouter()
+export default function LanguageSwitcher({origin}: { origin: string }) {
     const pathname = usePathname()
-
-    const handleChangeLanguage = (locale: string) => {
-        const segments = pathname.split('/')
-        segments[1] = locale // предполагаем, что locale всегда на втором уровне
-        const newPath = segments.join('/')
-        router.push(newPath)
-    }
-
-    const currentLocale = pathname.split('/')[1]
+    const segments = pathname.split('/')
+    const currentLocale = segments[1]
 
     return (
-        <div className="flex gap-2">
-            {languages.map(({ code, emoji }) => (
-                <button
-                    key={code}
-                    onClick={() => handleChangeLanguage(code)}
-                    className="p-1 mb-4"
-                    aria-label={`Switch to ${code}`}
-                >
-                    <div className="cursor-pointer">
-                        <p className="w-full h-full font text-2xl">
-                            {emoji}
-                        </p>
-
-                    </div>
-
-                </button>
-            ))}
+        <div className="flex gap-2 flex-wrap mb-4">
+            {languages.map(({ code, emoji }) => {
+                const newPath = ['/', code, ...segments.slice(2)].join('/')
+                const path = origin + newPath
+                return (
+                    <Link
+                        key={code}
+                        href={path}
+                        className={clsx(
+                            'p-1 text-2xl',
+                            currentLocale === code ? 'ring-2 ring-blue-500 rounded' : ''
+                        )}
+                    >
+                        {emoji}
+                    </Link>
+                )
+            })}
         </div>
     )
 }

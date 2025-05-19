@@ -1,5 +1,6 @@
 import { getTranslations } from 'next-intl/server';
 import QrGenerator from "@/app/components/QrGenerator";
+import { headers } from 'next/headers'
 
 
 type Props = {
@@ -17,8 +18,15 @@ export async function generateMetadata({ params }: Props) {
   };
 }
 
-export default function Index() {
+export default async function Index() {
+  const headersList = await headers()
+  const host = headersList.get('host')
+  const protocol = headersList.get('x-forwarded-proto') || 'http'
+  const origin = `${protocol}://${host}`
+
   return (
-        <QrGenerator />
+      <div>
+        <QrGenerator origin={origin} />
+      </div>
   );
 }
