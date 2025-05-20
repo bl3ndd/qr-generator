@@ -7,6 +7,7 @@ const locales = [
 // Добавим сюда список всех маршрутов (без локали)
 const basePaths = [
     '',            // главная страница — `/[locale]`
+    '/blog/how-to-create-qr-code-online'
     // добавь другие базовые маршруты по аналогии
 ];
 
