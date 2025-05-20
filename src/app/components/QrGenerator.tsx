@@ -11,7 +11,7 @@ import LanguageSwitcher from "@/app/components/LanguageSwitcher";
 export default function QRCodeGenerator({origin}: {origin: string}) {
     const t = useTranslations();
 
-    const [qrString, setQrString] = useState('https://qrgen.cutbg.org/');
+    const [qrString, setQrString] = useState('https://qrafty.cutbg.org/');
     const [darkColor, setDarkColor] = useState('#000000');
     const [lightColor, setLightColor] = useState('#FFFFFF');
     const [downloadUrl, setDownloadUrl] = useState(null);
