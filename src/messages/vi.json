@@ -6,5 +6,25 @@
     "title": "QRafty — Trình Tạo Mã QR Tùy Chỉnh Miễn Phí với Màu Sắc & Logo",
     "description": "QRafty là trình tạo mã QR nhanh chóng và miễn phí cho phép bạn tạo mã QR phong cách với màu sắc, hình dạng và logo tùy chỉnh. Tải xuống mã QR của bạn ngay lập tức với chất lượng cao.",
     "keywords": "QRafty, trình tạo mã QR, mã QR miễn phí, mã QR tùy chỉnh, QR với logo, tải mã QR, trình tạo QR trực tuyến"
+  },
+  "pages": { "main": "Trang chủ" },
+  "articles": "Bài viết",
+  "article1": {
+    "paragraphKeys": [
+      "article1.p1", "article1.p2", "article1.p3", "article1.p4", "article1.p5",
+      "article1.p6", "article1.p7", "article1.p8", "article1.p9", "article1.p10", "article1.p11"
+    ],
+    "p1": "Mã QR đã trở thành một phần trong cuộc sống hàng ngày của chúng ta: chúng ta quét chúng để thanh toán, đăng ký, truy cập danh thiếp hoặc thực đơn. Bạn có biết mình có thể tự tạo mã QR phong cách trong một phút — miễn phí và không cần đăng ký?",
+    "p2": "1. Mở trang web QRafty.",
+    "p3": "QRafty là công cụ tạo mã QR trực tuyến đơn giản, không cần tải xuống hay đăng ký.",
+    "p4": "2. Nhập liên kết hoặc văn bản bạn cần.",
+    "p5": "Chỉ cần dán website, hồ sơ hoặc tin nhắn của bạn vào trường.",
+    "p6": "3. Tùy chỉnh màu sắc, hình dạng và thêm logo nếu cần.",
+    "p7": "Chọn màu yêu thích, hình dạng góc và thậm chí thêm thương hiệu của bạn.",
+    "p8": "4. Tải mã QR của bạn về với chất lượng cao.",
+    "p9": "Chỉ một lần nhấp, mã QR phong cách đã sẵn sàng!",
+    "p10": "Bây giờ bạn có thể sử dụng mã QR ở bất cứ đâu: danh thiếp, áp phích, bao bì hoặc Instagram Stories.",
+    "p11": "Thử ngay trên QRafty!",
+    "title": "Cách tạo mã QR trực tuyến"
   }
 }

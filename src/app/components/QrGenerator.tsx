@@ -7,6 +7,7 @@ import {ColorPicker} from "@/app/components/ColorPicker";
 import { useTranslations } from 'next-intl';
 
 import LanguageSwitcher from "@/app/components/LanguageSwitcher";
+import {RelatedArticles} from "@/app/components/Articles";
 
 export default function QRCodeGenerator({origin}: {origin: string}) {
     const t = useTranslations();
@@ -102,6 +103,9 @@ export default function QRCodeGenerator({origin}: {origin: string}) {
                     </button>
                 </div>
             </div>
+
+            <RelatedArticles />
+
             <LanguageSwitcher origin={origin} />
         </div>
     );

@@ -32,7 +32,7 @@ export default function LanguageSwitcher({origin}: { origin: string }) {
     const currentLocale = segments[1]
 
     return (
-        <div className="flex gap-2 flex-wrap mb-4">
+        <div className="flex gap-2 flex-wrap mb-4 mt-8">
             {languages.map(({ code, emoji }) => {
                 const newPath = ['/', code, ...segments.slice(2)].join('/')
                 const path = origin + newPath

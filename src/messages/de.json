@@ -6,5 +6,35 @@
     "title": "QRafty — Kostenloser QR-Code-Generator mit Farben & Logo",
     "description": "QRafty ist ein schneller und kostenloser QR-Code-Generator, mit dem Sie stilvolle QR-Codes mit benutzerdefinierten Farben, Formen und Logos erstellen können. Laden Sie Ihren QR-Code sofort in hoher Qualität herunter.",
     "keywords": "QRafty, QR-Code-Generator, kostenloser QR-Code, individueller QR-Code, QR mit Logo, QR-Code herunterladen, QR-Generator online"
+  },"pages": {
+    "main": "Startseite"
+  },
+  "articles": "Artikel",
+  "article1": {
+    "paragraphKeys": [
+      "article1.p1",
+      "article1.p2",
+      "article1.p3",
+      "article1.p4",
+      "article1.p5",
+      "article1.p6",
+      "article1.p7",
+      "article1.p8",
+      "article1.p9",
+      "article1.p10",
+      "article1.p11"
+    ],
+    "p1": "QR-Codes sind Teil unseres Alltags geworden: Wir scannen sie zum Bezahlen, Registrieren, für Visitenkarten oder Speisekarten. Wusstest du, dass du deinen eigenen stilvollen QR-Code in nur einer Minute erstellen kannst – kostenlos und ohne Registrierung?",
+    "p2": "1. Öffne die QRafty-Website.",
+    "p3": "QRafty ist ein einfacher Online-QR-Code-Generator, der keine Downloads oder Anmeldung erfordert.",
+    "p4": "2. Gib den benötigten Link oder Text ein.",
+    "p5": "Füge einfach deine Website, dein Profil oder deine Nachricht in das Feld ein.",
+    "p6": "3. Passe Farbe, Form und falls nötig das Logo an.",
+    "p7": "Wähle deine Lieblingsfarben, Eckformen und füge sogar deine Marke hinzu.",
+    "p8": "4. Lade deinen QR-Code in hoher Qualität herunter.",
+    "p9": "Mit einem Klick ist dein stilvoller QR-Code fertig!",
+    "p10": "Jetzt kannst du deinen QR-Code überall verwenden: auf Visitenkarten, Plakaten, Verpackungen oder Instagram-Stories.",
+    "p11": "Probiere es jetzt auf QRafty aus!",
+    "title": "Wie erstelle ich einen QR-Code online"
   }
 }

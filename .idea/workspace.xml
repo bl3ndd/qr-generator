@@ -5,12 +5,43 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="835d4a76-89b6-4702-9c09-dd46424e382a" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/app/[locale]/blog/how-to-create-qr-code-online/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/components/Articles.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/[locale]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/[locale]/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/LanguageSwitcher.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/LanguageSwitcher.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/components/QrGenerator.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/QrGenerator.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/messages/cn.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/messages/cn.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/messages/de.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/messages/de.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/messages/en.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/messages/en.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/messages/es.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/messages/es.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/messages/fr.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/messages/fr.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/messages/hi.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/messages/hi.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/messages/id.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/messages/id.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/messages/it.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/messages/it.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/messages/ja.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/messages/ja.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/messages/kk.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/messages/kk.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/messages/ko.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/messages/ko.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/messages/ky.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/messages/ky.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/messages/ms.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/messages/ms.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/messages/pt.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/messages/pt.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/messages/ru.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/messages/ru.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/messages/th.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/messages/th.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/messages/tr.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/messages/tr.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/messages/uz.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/messages/uz.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/messages/vi.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/messages/vi.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -23,25 +54,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;js.debugger.nextJs.config.created.client&quot;: &quot;true&quot;,
-    &quot;js.debugger.nextJs.config.created.server&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/evgenyvarzin/Documents/projects/qr-scanner/src/app/components&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Users/evgenyvarzin/Documents/projects/qr-scanner/node_modules/typescript/lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "js.debugger.nextJs.config.created.client": "true",
+    "js.debugger.nextJs.config.created.server": "true",
+    "last_opened_file_path": "/Users/evgenyvarzin/Documents/projects/qr-scanner/src/app/[locale]/blog/how-to-create-qr-code-online",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "/Users/evgenyvarzin/Documents/projects/qr-scanner/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/app/[locale]/blog/how-to-create-qr-code-online" />
+      <recent name="$PROJECT_DIR$/src/app/[locale]/blog" />
+      <recent name="$PROJECT_DIR$/src/app/[locale]/blog/[slug]" />
       <recent name="$PROJECT_DIR$/src/app/components" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -81,7 +115,7 @@
       <workItem from="1747634501019" duration="666000" />
       <workItem from="1747638546944" duration="6000" />
       <workItem from="1747638709914" duration="1543000" />
-      <workItem from="1747759723445" duration="4168000" />
+      <workItem from="1747759723445" duration="8765000" />
     </task>
     <servers />
   </component>

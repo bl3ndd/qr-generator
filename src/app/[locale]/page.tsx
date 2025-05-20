@@ -26,7 +26,7 @@ export default async function Index() {
 
   return (
       <div>
-        <QrGenerator origin={origin} />
+        <QrGenerator origin={origin}/>
       </div>
   );
 }

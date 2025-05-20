@@ -6,5 +6,36 @@
     "title": "QRafty — Free Custom QR Code Generator with Colors & Logo",
     "description": "QRafty is a fast and free QR code generator that lets you customize your QR code with colors, shapes, and logos. Download in high quality instantly.",
     "keywords": "QRafty, QR code generator, free QR code, custom QR code, QR with logo, download QR code, QR code tool"
+  },
+  "pages": {
+    "main": "Main page"
+  },
+  "articles": "Articles",
+  "article1": {
+    "paragraphKeys": [
+      "article1.p1",
+      "article1.p2",
+      "article1.p3",
+      "article1.p4",
+      "article1.p5",
+      "article1.p6",
+      "article1.p7",
+      "article1.p8",
+      "article1.p9",
+      "article1.p10",
+      "article1.p11"
+    ],
+    "p1": "QR codes have become a part of our daily lives: we scan them to pay, register, access business cards, or check menus. But did you know you can create your own stylish QR code in just one minute — for free and with no registration?",
+    "p2": "1. Open the QRafty website.",
+    "p3": "QRafty is a simple online QR code generator that requires no downloads or sign-ups.",
+    "p4": "2. Enter the link or text you need.",
+    "p5": "Just paste your website, profile, or message into the field.",
+    "p6": "3. Customize the color, shape, and, if needed, add a logo.",
+    "p7": "Choose your favorite colors, corner shapes, and even add your brand.",
+    "p8": "4. Download your QR code in high quality.",
+    "p9": "With one click, your stylish QR code is ready!",
+    "p10": "Now you can use your QR code anywhere: on business cards, posters, packaging, or Instagram stories.",
+    "p11": "Try it now on QRafty!",
+    "title": "How to create QR code online"
   }
 }
