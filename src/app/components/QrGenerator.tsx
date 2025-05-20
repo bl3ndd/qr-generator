@@ -48,14 +48,13 @@ export default function QRCodeGenerator({origin}: {origin: string}) {
 
     return (
         <div className="min-h-screen flex flex-col items-center justify-start bg-gradient-to-br from-indigo-100 via-white to-pink-100 px-4 py-10">
-            <h1 className="text-4xl md:text-5xl font-bold text-center text-gray-800 mb-12">
+            <h1 className="text-4xl md:text-5xl font-bold text-center text-gray-800 mb-8">
                 {t('title')}
             </h1>
 
-            <LanguageSwitcher origin={origin} />
-            <div className="max-w-6xl bg-white shadow-2xl rounded-3xl p-8 flex flex-col md:flex-row gap-10 items-center">
+            <div className="max-w-6xl bg-white shadow-2xl rounded-3xl p-8 flex flex-col md:flex-row gap-10 mb-4">
                 {/* Left Panel */}
-                <div className="md:w-1/2 flex flex-col gap-6">
+                <div className="md:w-1/2 flex flex-col gap-6 mt-12">
                     <div className="flex flex-col gap-4">
                         <label className="text-gray-700 font-semibold text-lg">{t('inputLabel')}</label>
                         <input
@@ -67,7 +66,7 @@ export default function QRCodeGenerator({origin}: {origin: string}) {
                         />
                     </div>
 
-                    <div className="flex flex-col md:flex-row gap-6">
+                    <div className="flex md:flex-row gap-6">
                         <ColorPicker
                             label="Foreground Color"
                             color={darkColor}
@@ -103,6 +102,7 @@ export default function QRCodeGenerator({origin}: {origin: string}) {
                     </button>
                 </div>
             </div>
+            <LanguageSwitcher origin={origin} />
         </div>
     );
 }
