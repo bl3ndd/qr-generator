@@ -1,1 +1,1 @@
-export const appName = 'YTDownloader';
+export const appName = 'QR generator';

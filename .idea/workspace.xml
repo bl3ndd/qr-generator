@@ -6,11 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="835d4a76-89b6-4702-9c09-dd46424e382a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/[locale]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/[locale]/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/LanguageSwitcher.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/LanguageSwitcher.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/QrGenerator.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/QrGenerator.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/config.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +81,8 @@
       <workItem from="1747556752845" duration="7339000" />
       <workItem from="1747634501019" duration="666000" />
       <workItem from="1747638546944" duration="6000" />
-      <workItem from="1747638709914" duration="1288000" />
+      <workItem from="1747638709914" duration="1543000" />
+      <workItem from="1747759723445" duration="617000" />
     </task>
     <servers />
   </component>
