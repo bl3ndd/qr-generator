@@ -1,10 +1,10 @@
 {
-  "title": "QR Code Generator",
+  "title": "Qrafty - Best QR Code Generator",
   "inputLabel": "QR Text / URL",
   "button": "Download QR Code",
   "seo": {
-    "title": "Free QR Code Generator — Create & Download Custom QR Codes",
-    "description": "Generate custom QR codes instantly with your own colors and logos. Download your QR code for free in high quality.",
-    "keywords": "QR code generator, create QR code, free QR code, custom QR code, download QR code, QR code with logo"
+    "title": "QRafty — Free Custom QR Code Generator with Colors & Logo",
+    "description": "QRafty is a fast and free QR code generator that lets you customize your QR code with colors, shapes, and logos. Download in high quality instantly.",
+    "keywords": "QRafty, QR code generator, free QR code, custom QR code, QR with logo, download QR code, QR code tool"
   }
 }

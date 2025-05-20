@@ -6,7 +6,24 @@
   <component name="ChangeListManager">
     <list default="true" id="835d4a76-89b6-4702-9c09-dd46424e382a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/messages/cn.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/messages/cn.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/messages/de.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/messages/de.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/messages/en.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/messages/en.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/messages/es.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/messages/es.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/messages/fr.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/messages/fr.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/messages/hi.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/messages/hi.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/messages/it.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/messages/it.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/messages/ja.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/messages/ja.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/messages/kk.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/messages/kk.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/messages/ko.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/messages/ko.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/messages/ky.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/messages/ky.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/messages/ms.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/messages/ms.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/messages/pt.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/messages/pt.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/messages/ru.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/messages/ru.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/messages/th.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/messages/th.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/messages/tr.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/messages/tr.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/messages/uz.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/messages/uz.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/messages/vi.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/messages/vi.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,7 +99,7 @@
       <workItem from="1747634501019" duration="666000" />
       <workItem from="1747638546944" duration="6000" />
       <workItem from="1747638709914" duration="1543000" />
-      <workItem from="1747759723445" duration="617000" />
+      <workItem from="1747759723445" duration="1311000" />
     </task>
     <servers />
   </component>
