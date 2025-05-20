@@ -3,6 +3,7 @@ import {notFound} from 'next/navigation';
 import {routing} from '@/i18n/routing';
 import { getMessages } from 'next-intl/server';
 import "./../globals.css";
+import { Analytics } from '@vercel/analytics/next';
 
 import { Metadata } from 'next';
 import {appName} from "../../../config";
@@ -51,6 +52,7 @@ export default async function LocaleLayout({children, params}: { children: React
             <body>
                 <NextIntlClientProvider>
                     {children}
+                    <Analytics />
                 </NextIntlClientProvider>
             </body>
         </html>
