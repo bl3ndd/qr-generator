@@ -42,6 +42,7 @@ export default function LanguageSwitcher({ origin }: { origin: string }) {
 
   return (
     <div className="mt-8 mb-4 w-full flex justify-end">
+      <label className="hidden">Select Item</label>
       <select
         value={currentLocale}
         onChange={handleChange}
