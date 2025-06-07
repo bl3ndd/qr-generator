@@ -8,6 +8,7 @@ import { AntdRegistry } from '@ant-design/nextjs-registry'
 
 import { Metadata } from 'next'
 import { appName } from '../../../config'
+import { Roboto } from 'next/font/google'
 
 export async function generateMetadata({
   params,
@@ -45,6 +46,12 @@ export async function generateMetadata({
   }
 }
 
+const roboto = Roboto({
+  subsets: ['latin'],
+  weight: ['400', '700'], // нужные веса
+  variable: '--font-roboto', // для CSS-переменной (опционально)
+})
+
 export default async function LocaleLayout({
   children,
   params,
@@ -58,7 +65,7 @@ export default async function LocaleLayout({
   }
 
   return (
-    <html lang={locale}>
+    <html className={roboto.className} lang={locale}>
       <body>
         <NextIntlClientProvider>
           <AntdRegistry>{children}</AntdRegistry>

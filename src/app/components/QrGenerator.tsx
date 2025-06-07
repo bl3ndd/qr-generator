@@ -7,8 +7,15 @@ import { Input, Typography, Button } from 'antd'
 import { useTranslations } from 'next-intl'
 
 import LanguageSwitcher from '@/app/components/LanguageSwitcher'
+import Link from 'next/link'
 
-export default function QRCodeGenerator({ origin }: { origin: string }) {
+export default function QRCodeGenerator({
+  origin,
+  locale,
+}: {
+  origin: string
+  locale: string
+}): JSX.Element {
   const t = useTranslations()
 
   const [qrString, setQrString] = useState('https://qrafty.cutbg.org/')
@@ -100,7 +107,13 @@ export default function QRCodeGenerator({ origin }: { origin: string }) {
           </div>
         </div>
 
-        <LanguageSwitcher origin={origin} />
+        <div className="mt-8 mb-4 flex items-center">
+          <Button size="large" color="default" variant="filled">
+            <Link href={`/${locale}/blog`}>{t('blog')}</Link>
+          </Button>
+
+          <LanguageSwitcher origin={origin} />
+        </div>
       </div>
     </div>
   )
