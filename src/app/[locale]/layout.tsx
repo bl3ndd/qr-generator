@@ -66,6 +66,9 @@ export default async function LocaleLayout({
 
   return (
     <html className={roboto.className} lang={locale}>
+      <head>
+        <meta name="msvalidate.01" content="F1D595D6C9E51FBCD32D16E50F43E7B3" />
+      </head>
       <body>
         <NextIntlClientProvider>
           <AntdRegistry>{children}</AntdRegistry>
