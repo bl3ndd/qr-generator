@@ -1,30 +1,14 @@
 {
-  "title": "QR Kod Oluşturucu",
-  "inputLabel": "QR Metni / URL",
-  "button": "QR Kodu İndir",
-  "seo": {
-    "title": "QRafty — Renkler ve Logo ile Ücretsiz Özel QR Kod Oluşturucu",
-    "description": "QRafty, özel renkler, şekiller ve logolarla şık QR kodları hızlı ve ücretsiz olarak oluşturmanıza olanak tanıyan bir QR kod oluşturucudur. QR kodunuzu yüksek kalitede anında indirin.",
-    "keywords": "QRafty, QR kod oluşturucu, ücretsiz QR kod, özel QR kod, logolu QR, QR kod indir, çevrimiçi QR oluşturucu"
-  },
-  "pages": { "main": "Ana sayfa" },
   "articles": "Makaleler",
-  "article1": {
-    "paragraphKeys": [
-      "article1.p1", "article1.p2", "article1.p3", "article1.p4", "article1.p5",
-      "article1.p6", "article1.p7", "article1.p8", "article1.p9", "article1.p10", "article1.p11"
-    ],
-    "p1": "QR kodları günlük hayatımızın bir parçası haline geldi: ödeme yapmak, kayıt olmak, kartvizitlere veya menülere erişmek için onları tarıyoruz. Kendi şık QR kodunuzu sadece bir dakikada — ücretsiz ve kaydolmadan — oluşturabileceğinizi biliyor muydunuz?",
-    "p2": "1. QRafty web sitesini açın.",
-    "p3": "QRafty, indirme veya kayıt gerektirmeyen basit bir çevrim içi QR kod oluşturucudur.",
-    "p4": "2. Gerekli bağlantıyı veya metni girin.",
-    "p5": "Sadece web sitenizi, profilinizi veya mesajınızı alana yapıştırın.",
-    "p6": "3. Renkleri, şekli özelleştirin, gerekiyorsa logo ekleyin.",
-    "p7": "Favori renklerinizi, köşe şekillerinizi seçin ve markanızı ekleyin.",
-    "p8": "4. QR kodunuzu yüksek kalitede indirin.",
-    "p9": "Tek bir tıklamayla şık QR kodunuz hazır!",
-    "p10": "Artık QR kodunuzu her yerde kullanabilirsiniz: kartvizit, afiş, ambalaj veya Instagram hikayelerinde.",
-    "p11": "Hemen QRafty'de deneyin!",
-    "title": "Çevrimiçi QR kodu nasıl oluşturulur"
-  }
+  "button": "QR Kodunu İndir",
+  "inputLabel": "QR Metin / URL",
+  "pages": {
+    "main": "Ana sayfa"
+  },
+  "seo": {
+    "description": "QRafty, QR kodunuzu renkler, şekiller ve logolarla özelleştirmenize olanak tanıyan hızlı ve ücretsiz bir QR kodu oluşturucusudur. Anında yüksek kalitede indirin.",
+    "keywords": "QRafty, QR kod üreteci, ücretsiz QR kodu, özel QR kodu, logolu QR, QR kodu indir, QR kod aracı",
+    "title": "QRafty — Renkler ve Logo ile Ücretsiz Özel QR Kod Oluşturucu"
+  },
+  "title": "Qrafty - 5 saniyede QR kodu üretin"
 }

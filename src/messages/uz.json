@@ -1,30 +1,14 @@
 {
-  "title": "QR Kod Yaratgich",
-  "inputLabel": "QR Matni / URL",
-  "button": "QR Kodni Yuklab Olish",
-  "seo": {
-    "title": "QRafty — Rang va logotipli bepul QR kod yaratish vositasi",
-    "description": "QRafty bu tezkor va bepul QR kod yaratish vositasi boʻlib, oʻzingiz xohlagan rang, shakl va logotip bilan zamonaviy QR kodlar yaratishingiz mumkin. QR kodingizni yuqori sifatda darhol yuklab oling.",
-    "keywords": "QRafty, QR kod yaratish vositasi, bepul QR kod, moslashtirilgan QR kod, logotipli QR, QR kod yuklab olish, onlayn QR generator"
-  },
-  "pages": { "main": "Bosh sahifa" },
   "articles": "Maqolalar",
-  "article1": {
-    "paragraphKeys": [
-      "article1.p1", "article1.p2", "article1.p3", "article1.p4", "article1.p5",
-      "article1.p6", "article1.p7", "article1.p8", "article1.p9", "article1.p10", "article1.p11"
-    ],
-    "p1": "QR kodlar kundalik hayotimizning bir qismiga aylandi: biz ularni to'lov, ro'yxatdan o'tish, vizitka yoki menyuga kirish uchun skanerlashamiz. Siz o'zingizning zamonaviy QR kodingizni atigi bir daqiqada — bepul va ro'yxatdan o'tmasdan — yaratishingiz mumkinligini bilasizmi?",
-    "p2": "1. QRafty veb-saytini oching.",
-    "p3": "QRafty — bu yuklab olish yoki ro'yxatdan o'tishni talab qilmaydigan oddiy onlayn QR kod yaratish vositasi.",
-    "p4": "2. Kerakli havolani yoki matnni kiriting.",
-    "p5": "Saytingiz, profilingiz yoki xabaringizni maydonga joylashtiring.",
-    "p6": "3. Rangni, shaklni sozlang, kerak bo'lsa logotip qo'shing.",
-    "p7": "Sevimli ranglaringiz, burchak shakllarini tanlang va brendingizni ham qo'shing.",
-    "p8": "4. QR kodingizni yuqori sifatda yuklab oling.",
-    "p9": "Bir marta bosish bilan zamonaviy QR kodingiz tayyor!",
-    "p10": "Endi QR kodingizni istalgan joyda ishlatishingiz mumkin: vizitka, afisha, qadoq yoki Instagram hikoyalarida.",
-    "p11": "QRafty'da hoziroq sinab ko'ring!",
-    "title": "Onlayn QR kodni qanday yaratish mumkin"
-  }
+  "button": "QR kodni yuklab oling",
+  "inputLabel": "QR matni / URL",
+  "pages": {
+    "main": "Bosh sahifa"
+  },
+  "seo": {
+    "description": "QRafty - bu QR kodingizni ranglar, shakllar va logotiplar bilan sozlash imkonini beruvchi tez va bepul QR kod ishlab chiqaruvchisi. Bir zumda yuqori sifatli yuklab oling.",
+    "keywords": "QRafty, QR kod generatori, bepul QR kodi, maxsus QR kodi, logotipli QR, QR kodini yuklab olish, QR kod vositasi",
+    "title": "QRafty - Ranglar va logotipli bepul maxsus QR kod generatori"
+  },
+  "title": "Qrafty - 5 soniya ichida QR kodini yarating"
 }

@@ -1,30 +1,14 @@
 {
-  "title": "Pembuat Kode QR",
-  "inputLabel": "Teks / URL QR",
-  "button": "Unduh Kode QR",
-  "seo": {
-    "title": "QRafty — Pembuat Kode QR Kustom Gratis dengan Warna & Logo",
-    "description": "QRafty adalah pembuat kode QR yang cepat dan gratis yang memungkinkan Anda membuat kode QR bergaya dengan warna, bentuk, dan logo khusus. Unduh kode QR Anda secara instan dalam kualitas tinggi.",
-    "keywords": "QRafty, pembuat kode QR, kode QR gratis, kode QR kustom, QR dengan logo, unduh kode QR, pembuat QR online"
-  },
-  "pages": { "main": "Halaman utama" },
   "articles": "Artikel",
-  "article1": {
-    "paragraphKeys": [
-      "article1.p1", "article1.p2", "article1.p3", "article1.p4", "article1.p5",
-      "article1.p6", "article1.p7", "article1.p8", "article1.p9", "article1.p10", "article1.p11"
-    ],
-    "p1": "Kode QR telah menjadi bagian dari kehidupan sehari-hari kita: kita memindainya untuk membayar, mendaftar, mengakses kartu nama, atau menu. Tahukah Anda bahwa Anda dapat membuat kode QR bergaya sendiri hanya dalam satu menit — gratis dan tanpa registrasi?",
-    "p2": "1. Buka situs web QRafty.",
-    "p3": "QRafty adalah generator kode QR online sederhana yang tidak memerlukan unduhan atau pendaftaran.",
-    "p4": "2. Masukkan tautan atau teks yang dibutuhkan.",
-    "p5": "Cukup tempelkan situs web, profil, atau pesan Anda ke dalam kolom.",
-    "p6": "3. Sesuaikan warna, bentuk, dan tambahkan logo jika perlu.",
-    "p7": "Pilih warna favorit, bentuk sudut, bahkan tambahkan merek Anda.",
-    "p8": "4. Unduh kode QR Anda dengan kualitas tinggi.",
-    "p9": "Dengan satu klik, kode QR bergaya Anda siap!",
-    "p10": "Sekarang Anda dapat menggunakan kode QR Anda di mana saja: kartu nama, poster, kemasan, atau Instagram Stories.",
-    "p11": "Coba sekarang di QRafty!",
-    "title": "Cara membuat kode QR online"
-  }
+  "button": "Unduh Kode QR",
+  "inputLabel": "Teks QR / URL",
+  "pages": {
+    "main": "Halaman utama"
+  },
+  "seo": {
+    "description": "QRafty adalah generator kode QR yang cepat dan gratis yang memungkinkan Anda menyesuaikan kode QR dengan warna, bentuk, dan logo. Unduh dalam kualitas tinggi secara instan.",
+    "keywords": "QRafty, generator kode QR, kode QR gratis, kode QR khusus, QR dengan logo, unduh kode QR, alat kode QR",
+    "title": "QRafty — Generator Kode QR Kustom Gratis dengan Warna & Logo"
+  },
+  "title": "Qrafty - hasilkan kode QR dalam 5 detik"
 }

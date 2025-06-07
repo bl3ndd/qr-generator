@@ -1,30 +1,14 @@
 {
-  "title": "Penjana Kod QR",
-  "inputLabel": "Teks / URL QR",
-  "button": "Muat Turun Kod QR",
-  "seo": {
-    "title": "QRafty — Penjana Kod QR Tersuai Percuma dengan Warna & Logo",
-    "description": "QRafty ialah penjana kod QR yang pantas dan percuma yang membolehkan anda mencipta kod QR bergaya dengan warna, bentuk dan logo tersuai. Muat turun kod QR anda serta-merta dalam kualiti tinggi.",
-    "keywords": "QRafty, penjana kod QR, kod QR percuma, kod QR tersuai, QR dengan logo, muat turun kod QR, penjana QR dalam talian"
-  },
-  "pages": { "main": "Laman utama" },
   "articles": "Artikel",
-  "article1": {
-    "paragraphKeys": [
-      "article1.p1", "article1.p2", "article1.p3", "article1.p4", "article1.p5",
-      "article1.p6", "article1.p7", "article1.p8", "article1.p9", "article1.p10", "article1.p11"
-    ],
-    "p1": "Kod QR telah menjadi sebahagian daripada kehidupan harian kita: kita mengimbasnya untuk membayar, mendaftar, mengakses kad perniagaan atau menu. Tahukah anda bahawa anda boleh mencipta kod QR bergaya anda sendiri dalam masa satu minit — percuma dan tanpa pendaftaran?",
-    "p2": "1. Buka laman web QRafty.",
-    "p3": "QRafty ialah penjana kod QR dalam talian yang ringkas dan tidak memerlukan muat turun atau pendaftaran.",
-    "p4": "2. Masukkan pautan atau teks yang diperlukan.",
-    "p5": "Tampal sahaja laman web, profil atau mesej anda ke dalam ruangan.",
-    "p6": "3. Sesuaikan warna, bentuk dan jika perlu, tambah logo.",
-    "p7": "Pilih warna kegemaran, bentuk sudut dan juga tambah jenama anda.",
-    "p8": "4. Muat turun kod QR anda dalam kualiti tinggi.",
-    "p9": "Dengan satu klik, kod QR bergaya anda sedia!",
-    "p10": "Kini anda boleh menggunakan kod QR anda di mana-mana sahaja: pada kad perniagaan, poster, pembungkusan atau Instagram Stories.",
-    "p11": "Cuba sekarang di QRafty!",
-    "title": "Cara mencipta kod QR dalam talian"
-  }
+  "button": "Muat turun Kod QR",
+  "inputLabel": "Teks QR / URL",
+  "pages": {
+    "main": "Halaman utama"
+  },
+  "seo": {
+    "description": "QRafty ialah penjana kod QR yang pantas dan percuma yang membolehkan anda menyesuaikan kod QR anda dengan warna, bentuk dan logo. Muat turun dalam kualiti tinggi serta-merta.",
+    "keywords": "QRafty, penjana kod QR, kod QR percuma, kod QR tersuai, QR dengan logo, muat turun kod QR, alat kod QR",
+    "title": "QRafty — Penjana Kod QR Tersuai Percuma dengan Warna & Logo"
+  },
+  "title": "Qrafty - jana kod QR dalam 5 saat"
 }

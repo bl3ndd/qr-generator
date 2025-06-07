@@ -1,41 +1,14 @@
 {
-  "title": "Generador de códigos QR",
-  "inputLabel": "Texto o URL para QR",
+  "articles": "Artículos",
   "button": "Descargar código QR",
-  "seo": {
-    "title": "QRafty — Generador de Códigos QR Personalizados Gratis con Colores y Logo",
-    "description": "QRafty es un generador de códigos QR rápido y gratuito que te permite crear códigos QR elegantes con colores, formas y logotipos personalizados. Descarga tu código QR al instante en alta calidad.",
-    "keywords": "QRafty, generador de códigos QR, código QR gratis, código QR personalizado, QR con logo, descargar código QR, generador de QR online"
-  },
+  "inputLabel": "Texto QR/URL",
   "pages": {
     "main": "Página principal"
   },
-  "articles": "Artículos",
-  "article1": {
-    "paragraphKeys": [
-      "article1.p1",
-      "article1.p2",
-      "article1.p3",
-      "article1.p4",
-      "article1.p5",
-      "article1.p6",
-      "article1.p7",
-      "article1.p8",
-      "article1.p9",
-      "article1.p10",
-      "article1.p11"
-    ],
-    "p1": "Los códigos QR se han convertido en parte de nuestra vida diaria: los escaneamos para pagar, registrarnos, acceder a tarjetas de presentación o menús. ¿Sabías que puedes crear tu propio código QR elegante en solo un minuto, gratis y sin registro?",
-    "p2": "1. Abre el sitio web de QRafty.",
-    "p3": "QRafty es un generador de códigos QR en línea simple que no requiere descargas ni registros.",
-    "p4": "2. Ingresa el enlace o texto que necesitas.",
-    "p5": "Simplemente pega tu sitio web, perfil o mensaje en el campo.",
-    "p6": "3. Personaliza el color, la forma y, si lo necesitas, añade un logotipo.",
-    "p7": "Elige tus colores favoritos, la forma de las esquinas e incluso añade tu marca.",
-    "p8": "4. Descarga tu código QR en alta calidad.",
-    "p9": "¡Con un solo clic, tu código QR elegante está listo!",
-    "p10": "Ahora puedes usar tu código QR en cualquier lugar: en tarjetas de presentación, carteles, empaques o historias de Instagram.",
-    "p11": "¡Pruébalo ahora en QRafty!",
-    "title": "Cómo crear un código QR en línea"
-  }
+  "seo": {
+    "description": "QRafty es un generador de códigos QR rápido y gratuito que te permite personalizar tu código QR con colores, formas y logotipos. Descarga al instante en alta calidad.",
+    "keywords": "QRafty, generador de códigos QR, código QR gratuito, código QR personalizado, QR con logotipo, descargar código QR, herramienta de código QR",
+    "title": "QRafty: Generador de códigos QR personalizados y gratuitos con colores y logotipo"
+  },
+  "title": "Qrafty - genera código QR en 5 segundos"
 }
