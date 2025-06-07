@@ -4,6 +4,7 @@ import { routing } from '@/i18n/routing'
 import { getMessages } from 'next-intl/server'
 import './../globals.css'
 import { Analytics } from '@vercel/analytics/next'
+import { AntdRegistry } from '@ant-design/nextjs-registry'
 
 import { Metadata } from 'next'
 import { appName } from '../../../config'
@@ -60,7 +61,7 @@ export default async function LocaleLayout({
     <html lang={locale}>
       <body>
         <NextIntlClientProvider>
-          {children}
+          <AntdRegistry>{children}</AntdRegistry>
           <Analytics />
         </NextIntlClientProvider>
       </body>

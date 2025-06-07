@@ -2,12 +2,11 @@
 
 import React, { useEffect, useRef, useState } from 'react'
 import { QRCodeCanvas } from 'qrcode.react'
-import { ColorPicker } from '@/app/components/ColorPicker'
-
+import { CustomColorPicker } from '@/app/components/ColorPicker'
+import { Input, Typography, Button } from 'antd'
 import { useTranslations } from 'next-intl'
 
 import LanguageSwitcher from '@/app/components/LanguageSwitcher'
-import { RelatedArticles } from '@/app/components/Articles'
 
 export default function QRCodeGenerator({ origin }: { origin: string }) {
   const t = useTranslations()
@@ -47,29 +46,37 @@ export default function QRCodeGenerator({ origin }: { origin: string }) {
   }
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-start bg-gradient-to-br from-indigo-100 via-white to-pink-100 px-4 py-10">
+    <div className="min-h-screen flex flex-col items-center justify-start bg-gradient-to-br from-indigo-100 via-white to-pink-100 px-4 md:py-10 py-4">
       <div className="max-w-[800px]">
-        <h1 className="text-4xl md:text-5xl font-bold text-center text-gray-800 mb-8">
+        <h1 className="text-2xl md:text-5xl font-bold text-center text-gray-800 md:mb-8 mb-4">
           {t('title')}
         </h1>
 
-        <div className="max-w-6xl bg-white shadow-2xl rounded-3xl p-8 flex flex-col md:flex-row gap-10 mb-4">
+        <div className="max-w-6xl bg-white shadow-2xl rounded-3xl p-4 sm:p-8 flex flex-col md:flex-row gap-10 mb-4">
           {/* Left Panel */}
-          <div className="md:w-1/2 flex flex-col gap-6 mt-12">
-            <div className="flex flex-col gap-4">
-              <label className="text-gray-700 font-semibold text-lg">{t('inputLabel')}</label>
-              <input
+          <div className="md:w-1/2 flex flex-col gap-6 md:mt-12">
+            <div>
+              <Typography.Title level={5}>{t('inputLabel')}</Typography.Title>
+              <Input
                 type="text"
+                size="large"
                 value={qrString}
                 onChange={(e) => setQrString(e.target.value)}
-                className="p-3 border border-gray-300 rounded-xl shadow-inner text-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-300 transition"
                 placeholder="Enter URL or text"
               />
             </div>
 
             <div className="flex md:flex-row gap-6">
-              <ColorPicker label="Foreground Color" color={darkColor} setColor={setDarkColor} />
-              <ColorPicker label="Background Color" color={lightColor} setColor={setLightColor} />
+              <CustomColorPicker
+                label="Foreground Color"
+                color={darkColor}
+                setColor={setDarkColor}
+              />
+              <CustomColorPicker
+                label="Background Color"
+                color={lightColor}
+                setColor={setLightColor}
+              />
             </div>
           </div>
 
@@ -87,16 +94,11 @@ export default function QRCodeGenerator({ origin }: { origin: string }) {
               />
             </div>
 
-            <button
-              onClick={downloadQr}
-              className="px-6 py-3 bg-indigo-500 text-white font-semibold rounded-xl shadow-md hover:bg-indigo-600 active:scale-95 transition"
-            >
+            <Button type="primary" size="large" onClick={downloadQr}>
               {t('button')}
-            </button>
+            </Button>
           </div>
         </div>
-
-        {/*<RelatedArticles />*/}
 
         <LanguageSwitcher origin={origin} />
       </div>
