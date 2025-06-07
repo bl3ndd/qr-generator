@@ -26,7 +26,7 @@ export async function generateMetadata({
     openGraph: {
       title: messages.seo.title,
       description: messages.seo.description,
-      url: 'https://qrgen.cutbg.org',
+      url: 'https://qrafty.cutbg.org',
       siteName: appName,
       images: [
         {
