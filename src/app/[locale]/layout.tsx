@@ -6,6 +6,8 @@ import './../globals.css'
 import { Analytics } from '@vercel/analytics/next'
 import { AntdRegistry } from '@ant-design/nextjs-registry'
 
+import { SpeedInsights } from '@vercel/speed-insights/next'
+
 import { Metadata } from 'next'
 import { appName } from '../../../config'
 import { Roboto } from 'next/font/google'
@@ -73,6 +75,7 @@ export default async function LocaleLayout({
         <NextIntlClientProvider>
           <AntdRegistry>{children}</AntdRegistry>
           <Analytics />
+          <SpeedInsights />
         </NextIntlClientProvider>
       </body>
     </html>
