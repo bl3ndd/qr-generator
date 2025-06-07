@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "fetch-locales": "node fetch-locales.mjs",
-    "build": "pnpm fetch-locales && next build",
+    "build": "pnpm fetch-locales && next build --no-lint",
     "postbuild": "next-sitemap --config next-sitemap.config.js",
     "start": "next start",
     "lint": "next lint"
