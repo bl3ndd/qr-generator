@@ -28,7 +28,7 @@ const basePaths = [
 ]
 
 module.exports = {
-  siteUrl: 'https://qrgen.cutbg.org',
+  siteUrl: 'https://qrafty.cutbg.org',
   changefreq: 'daily',
   priority: 0.7,
   sitemapSize: 5000,

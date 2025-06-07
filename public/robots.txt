@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://qrgen.cutbg.org
+Host: https://qrafty.cutbg.org
 
 # Sitemaps
-Sitemap: https://qrgen.cutbg.org/sitemap.xml
+Sitemap: https://qrafty.cutbg.org/sitemap.xml
