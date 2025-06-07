@@ -8,7 +8,7 @@ tags: ["qr code", "online tools", "how-to", "qrafty"]
 
 QR codes are everywhere — from product packaging to business cards, menus, and digital promotions. If you're looking for a fast and free way to generate a QR code, **QRAFTY** makes it incredibly easy.
 
-In this quick guide, we’ll show you how to create your own QR code online in just a few steps using [QRAFTY](https://qrafty.io).
+In this quick guide, we’ll show you how to create your own QR code online in just a few steps using [QRAFTY](https://qrafty.cutbg.org).
 
 ---
 
@@ -31,7 +31,7 @@ Follow these simple steps:
 
 ### 1. Open the QRAFTY Website
 
-Go to [https://qrafty.io](https://qrafty.io)
+Go to [https://qrafty.cutbg.org](https://qrafty.cutbg.org)
 
 You’ll see a clean interface where you can choose the type of content you want to encode.
 
@@ -87,7 +87,7 @@ Click **"Download"** to save the QR code in PNG or SVG format. That’s it — y
 
 ## 🔗 Try it Now
 
-👉 [Go to QRAFTY](https://qrafty.io) and create your first QR code in seconds.
+👉 [Go to QRAFTY](https://qrafty.cutbg.org) and create your first QR code in seconds.
 
 ---
 
