@@ -269,13 +269,17 @@ export default function QRCodeGenerator({ origin, locale }: { origin: string; lo
 
         <div className="mt-8 mb-4 flex items-center">
           <div className="flex gap-2">
-            <Button icon={<PaperClipOutlined />} size="large" color="default" variant="filled">
-              <Link href={`/${locale}/blog`}>{t('blog')}</Link>
-            </Button>
+            <Link href={`/${locale}/blog`}>
+              <Button icon={<PaperClipOutlined />} size="large" color="default" variant="filled">
+                {t('blog')}
+              </Button>
+            </Link>
 
-            <Button icon={<DollarOutlined />} size="large" color="danger" variant="filled">
-              <Link href={`/${locale}/donate`}>{t('donate.title')}</Link>
-            </Button>
+            <Link href={`/${locale}/donate`}>
+              <Button icon={<DollarOutlined />} size="large" color="danger" variant="filled">
+                {t('donate.title')}
+              </Button>
+            </Link>
           </div>
 
           <LanguageSwitcher origin={origin} />
