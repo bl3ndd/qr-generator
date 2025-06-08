@@ -13,7 +13,7 @@ interface BlogPageProps {
 }
 
 export default async function BlogPage({ params }: BlogPageProps) {
-  const { locale } = params
+  const { locale } = await params
   const posts: Post[] = getAllPosts(locale)
 
   return (

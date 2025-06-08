@@ -4,7 +4,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="835d4a76-89b6-4702-9c09-dd46424e382a" name="Changes" comment="" />
+    <list default="true" id="835d4a76-89b6-4702-9c09-dd46424e382a" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/[locale]/blog/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/[locale]/blog/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/content/cn/how-to-create-qr-code-online.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/cn/how-to-create-qr-code-online.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/content/de/how-to-create-qr-code-online.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/de/how-to-create-qr-code-online.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/content/es/how-to-create-qr-code-online.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/es/how-to-create-qr-code-online.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/content/fr/how-to-create-qr-code-online.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/fr/how-to-create-qr-code-online.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/content/hi/how-to-create-qr-code-online.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/hi/how-to-create-qr-code-online.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/content/id/how-to-create-qr-code-online.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/id/how-to-create-qr-code-online.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/content/it/how-to-create-qr-code-online.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/it/how-to-create-qr-code-online.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/content/ja/how-to-create-qr-code-online.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/ja/how-to-create-qr-code-online.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/content/kk/how-to-create-qr-code-online.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/kk/how-to-create-qr-code-online.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/content/ko/how-to-create-qr-code-online.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/ko/how-to-create-qr-code-online.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/content/ky/how-to-create-qr-code-online.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/ky/how-to-create-qr-code-online.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/content/ms/how-to-create-qr-code-online.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/ms/how-to-create-qr-code-online.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/content/pt/how-to-create-qr-code-online.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/pt/how-to-create-qr-code-online.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/content/ru/how-to-create-qr-code-online.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/ru/how-to-create-qr-code-online.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/content/th/how-to-create-qr-code-online.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/th/how-to-create-qr-code-online.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/content/tr/how-to-create-qr-code-online.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/tr/how-to-create-qr-code-online.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/content/uz/how-to-create-qr-code-online.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/uz/how-to-create-qr-code-online.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/content/vi/how-to-create-qr-code-online.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/vi/how-to-create-qr-code-online.md" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
