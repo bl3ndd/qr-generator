@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "next dev",
     "fetch-locales": "node fetch-locales.mjs",
     "build": "pnpm fetch-locales && next build --no-lint",
     "postbuild": "next-sitemap --config next-sitemap.config.js",

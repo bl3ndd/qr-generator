@@ -6,6 +6,7 @@
   "pages": {
     "main": "Halaman utama"
   },
+  "selectLabel": "Format Imej",
   "seo": {
     "description": "QRafty ialah penjana kod QR yang pantas dan percuma yang membolehkan anda menyesuaikan kod QR anda dengan warna, bentuk dan logo. Muat turun dalam kualiti tinggi serta-merta.",
     "keywords": "QRafty, penjana kod QR, kod QR percuma, kod QR tersuai, QR dengan logo, muat turun kod QR, alat kod QR",

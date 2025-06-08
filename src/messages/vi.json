@@ -6,6 +6,7 @@
   "pages": {
     "main": "Trang chủ"
   },
+  "selectLabel": "Định dạng hình ảnh",
   "seo": {
     "description": "QRafty là trình tạo mã QR nhanh và miễn phí cho phép bạn tùy chỉnh mã QR của mình bằng màu sắc, hình dạng và logo. Tải xuống ngay lập tức với chất lượng cao.",
     "keywords": "QRafty, trình tạo mã QR, mã QR miễn phí, mã QR tùy chỉnh, mã QR có logo, tải xuống mã QR, công cụ mã QR",

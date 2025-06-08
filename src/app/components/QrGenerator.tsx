@@ -1,56 +1,71 @@
 'use client'
 
 import React, { useEffect, useRef, useState } from 'react'
-import { QRCodeCanvas } from 'qrcode.react'
+import { QRCodeCanvas, QRCodeSVG } from 'qrcode.react'
 import { CustomColorPicker } from '@/app/components/ColorPicker'
-import { Input, Typography, Button } from 'antd'
+import { Input, Typography, Button, Select } from 'antd'
 import { useTranslations } from 'next-intl'
-
 import LanguageSwitcher from '@/app/components/LanguageSwitcher'
 import Link from 'next/link'
 
-export default function QRCodeGenerator({
-  origin,
-  locale,
-}: {
-  origin: string
-  locale: string
-}): JSX.Element {
+type DownloadFormats = 'webp' | 'svg' | 'jpeg' | 'png'
+
+export default function QRCodeGenerator({ origin, locale }: { origin: string; locale: string }) {
   const t = useTranslations()
 
   const [qrString, setQrString] = useState('https://qrafty.cutbg.org/')
   const [darkColor, setDarkColor] = useState('#000000')
   const [lightColor, setLightColor] = useState('#FFFFFF')
-  const [downloadUrl, setDownloadUrl] = useState(null)
-  const qrRef = useRef(null)
-  const timeoutRef = useRef(null)
+  const [downloadUrl, setDownloadUrl] = useState<string | null>(null)
+  const [downloadFormat, setDownloadFormat] = useState<DownloadFormats>('svg')
 
-  const generateDownloadUrl = () => {
-    if (qrRef.current) {
-      const url = qrRef.current.toDataURL('image/jpeg')
-      setDownloadUrl(url)
-    }
-  }
+  const canvasRef = useRef<HTMLCanvasElement>(null)
+  const svgRef = useRef<SVGSVGElement>(null)
 
-  const debouncedGenerateDownloadUrl = () => {
-    clearTimeout(timeoutRef.current)
-    timeoutRef.current = setTimeout(() => {
-      generateDownloadUrl()
-    }, 500)
-  }
-
+  // Обновляем downloadUrl для canvas-форматов
   useEffect(() => {
-    debouncedGenerateDownloadUrl()
-  }, [darkColor, lightColor, qrString])
+    if (downloadFormat === 'svg') {
+      // Для svg не генерируем URL заранее
+      setDownloadUrl(null)
+      return
+    }
+
+    const timeout = setTimeout(() => {
+      if (canvasRef.current) {
+        const url = canvasRef.current.toDataURL(`image/${downloadFormat}`)
+        setDownloadUrl(url)
+      }
+    }, 600)
+
+    return () => clearTimeout(timeout)
+  }, [qrString, darkColor, lightColor, downloadFormat])
 
   const downloadQr = () => {
-    if (downloadUrl) {
+    if (downloadFormat === 'svg') {
+      if (!svgRef.current) return
+      const svgData = new XMLSerializer().serializeToString(svgRef.current)
+      const blob = new Blob([svgData], { type: 'image/svg+xml' })
+      const url = URL.createObjectURL(blob)
+
+      const a = document.createElement('a')
+      a.href = url
+      a.download = `qr.svg`
+      a.click()
+
+      URL.revokeObjectURL(url)
+    } else {
+      if (!downloadUrl) return
+
       const a = document.createElement('a')
       a.href = downloadUrl
-      a.download = 'qr.jpeg'
+      a.download = `qr.${downloadFormat}`
       a.click()
     }
   }
+
+  // Выбираем какой QR компонент рендерить — canvas или svg
+  const QRComponent = downloadFormat === 'svg' ? QRCodeSVG : QRCodeCanvas
+  const ref = downloadFormat === 'svg' ? svgRef : canvasRef
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-start bg-gradient-to-br from-indigo-100 via-white to-pink-100 px-4 md:py-10 py-4">
@@ -85,18 +100,32 @@ export default function QRCodeGenerator({
                 setColor={setLightColor}
               />
             </div>
+
+            <div className="w-40">
+              <Typography.Title level={5}>{t('selectLabel')}</Typography.Title>
+              <Select
+                className="w-full"
+                value={downloadFormat}
+                onChange={(val: DownloadFormats) => setDownloadFormat(val)}
+              >
+                <Select.Option value="svg">SVG</Select.Option>
+                <Select.Option value="jpeg">JPEG</Select.Option>
+                <Select.Option value="png">PNG</Select.Option>
+                <Select.Option value="webp">WEBP</Select.Option>
+              </Select>
+            </div>
           </div>
 
           {/* Right Panel */}
           <div className="w-full md:w-1/2 flex flex-col items-center gap-6">
             <div className="bg-white p-4 rounded-2xl shadow-xl border">
-              <QRCodeCanvas
+              <QRComponent
                 value={qrString}
                 size={300}
                 bgColor={lightColor}
                 fgColor={darkColor}
                 level="H"
-                ref={qrRef}
+                ref={ref}
                 className="rounded-lg"
               />
             </div>
@@ -108,7 +137,7 @@ export default function QRCodeGenerator({
         </div>
 
         <div className="mt-8 mb-4 flex items-center">
-          <Button size="large" color="default" variant="filled">
+          <Button size="large" type="default">
             <Link href={`/${locale}/blog`}>{t('blog')}</Link>
           </Button>
 

@@ -6,6 +6,7 @@
   "pages": {
     "main": "主页"
   },
+  "selectLabel": "图像格式",
   "seo": {
     "description": "QRafty 是一个快速且免费的二维码生成器，可让您使用颜色、形状和徽标自定义您的二维码。立即下载高质量的二维码。",
     "keywords": "QRafty, QR码生成器,免费QR码,自定义QR码,带标志的QR码,下载QR码,QR码工具",

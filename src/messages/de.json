@@ -6,6 +6,7 @@
   "pages": {
     "main": "Hauptseite"
   },
+  "selectLabel": "Bildformat",
   "seo": {
     "description": "QRafty ist ein schneller und kostenloser QR-Code-Generator, mit dem Sie Ihren QR-Code mit Farben, Formen und Logos individuell gestalten können. Sofortiger Download in hoher Qualität.",
     "keywords": "QRafty, QR-Code-Generator, kostenloser QR-Code, benutzerdefinierter QR-Code, QR mit Logo, QR-Code herunterladen, QR-Code-Tool",

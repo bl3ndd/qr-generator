@@ -6,6 +6,7 @@
   "pages": {
     "main": "Bosh sahifa"
   },
+  "selectLabel": "Rasm formati",
   "seo": {
     "description": "QRafty - bu QR kodingizni ranglar, shakllar va logotiplar bilan sozlash imkonini beruvchi tez va bepul QR kod ishlab chiqaruvchisi. Bir zumda yuqori sifatli yuklab oling.",
     "keywords": "QRafty, QR kod generatori, bepul QR kodi, maxsus QR kodi, logotipli QR, QR kodini yuklab olish, QR kod vositasi",

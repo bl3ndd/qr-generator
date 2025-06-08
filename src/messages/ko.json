@@ -6,6 +6,7 @@
   "pages": {
     "main": "메인 페이지"
   },
+  "selectLabel": "이미지 형식",
   "seo": {
     "description": "QRafty는 색상, 모양, 로고를 자유롭게 변경하여 QR 코드를 만들 수 있는 빠르고 무료 QR 코드 생성기입니다. 고화질로 즉시 다운로드하세요.",
     "keywords": "QRafty, QR 코드 생성기, 무료 QR 코드, 사용자 정의 QR 코드, 로고가 있는 QR 코드, QR 코드 다운로드, QR 코드 도구",
