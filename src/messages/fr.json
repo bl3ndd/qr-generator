@@ -1,7 +1,14 @@
 {
   "articles": "Articles",
+  "back": "Dos",
   "blog": "Blog",
   "button": "Télécharger le code QR",
+  "copied": "Copié",
+  "copy": "Copie",
+  "donate": {
+    "description": "Si cet outil vous a été utile, n'hésitez pas à le soutenir avec des cryptomonnaies. Merci de votre générosité ! Ce projet sera gratuit pour toujours.",
+    "title": "Faire un don"
+  },
   "inputLabel": "Texte QR / URL",
   "pages": {
     "main": "Page principale"

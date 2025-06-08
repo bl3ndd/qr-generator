@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { getAllPosts } from '../../../lib/articles'
 import { Button } from 'antd'
+import { useTranslations } from 'next-intl'
 
 interface Post {
   slug: string
@@ -15,10 +16,11 @@ interface BlogPageProps {
 export default async function BlogPage({ params }: BlogPageProps) {
   const { locale } = await params
   const posts: Post[] = getAllPosts(locale)
+  const t = useTranslations()
 
   return (
     <main className="max-w-3xl mx-auto p-6 bg-white rounded-lg shadow-md mt-10">
-      <Button>Back</Button>
+      <Button>{t('back')}</Button>
       <h1 className="text-3xl font-bold mt-4 mb-8">Blog</h1>
 
       <ul className="space-y-4">

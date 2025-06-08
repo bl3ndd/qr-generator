@@ -7,7 +7,13 @@ import { Input, Typography, Button, Select, Upload, Tooltip } from 'antd'
 import { useTranslations } from 'next-intl'
 import type { UploadFile } from 'antd/es/upload/interface'
 
-import { UploadOutlined, InfoCircleOutlined, DeleteOutlined } from '@ant-design/icons'
+import {
+  UploadOutlined,
+  InfoCircleOutlined,
+  DeleteOutlined,
+  DollarOutlined,
+  PaperClipOutlined,
+} from '@ant-design/icons'
 
 import LanguageSwitcher from '@/app/components/LanguageSwitcher'
 import Link from 'next/link'
@@ -262,9 +268,15 @@ export default function QRCodeGenerator({ origin, locale }: { origin: string; lo
         </div>
 
         <div className="mt-8 mb-4 flex items-center">
-          <Button size="large" color="default" variant="filled">
-            <Link href={`/${locale}/blog`}>{t('blog')}</Link>
-          </Button>
+          <div className="flex gap-2">
+            <Button icon={<PaperClipOutlined />} size="large" color="default" variant="filled">
+              <Link href={`/${locale}/blog`}>{t('blog')}</Link>
+            </Button>
+
+            <Button icon={<DollarOutlined />} size="large" color="danger" variant="filled">
+              <Link href={`/${locale}/donate`}>{t('donate.title')}</Link>
+            </Button>
+          </div>
 
           <LanguageSwitcher origin={origin} />
         </div>

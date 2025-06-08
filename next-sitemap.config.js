@@ -24,6 +24,7 @@ const locales = [
 const basePaths = [
   '', // главная страница — `/[locale]`
   '/blog/how-to-create-qr-code-online',
+  '/donate',
   // добавь другие базовые маршруты по аналогии
 ]
 

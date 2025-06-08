@@ -1,7 +1,14 @@
 {
   "articles": "Artikel",
+  "back": "belakang",
   "blog": "Blog",
   "button": "Muat turun Kod QR",
+  "copied": "disalin",
+  "copy": "salin",
+  "donate": {
+    "description": "Jika alat ini membantu, jangan ragu untuk menyokongnya dengan crypto. Terima kasih atas kemurahan hati anda! Projek ini akan percuma selama-lamanya",
+    "title": "Menderma"
+  },
   "inputLabel": "Teks QR / URL",
   "pages": {
     "main": "Halaman utama"

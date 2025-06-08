@@ -1,7 +1,14 @@
 {
   "articles": "Bài viết",
+  "back": "Mặt sau",
   "blog": "Blog",
   "button": "Tải xuống mã QR",
+  "copied": "Đã sao chép",
+  "copy": "Sao chép",
+  "donate": {
+    "description": "Nếu công cụ này hữu ích, hãy thoải mái hỗ trợ nó bằng tiền điện tử. Cảm ơn sự hào phóng của bạn! Dự án này sẽ miễn phí mãi mãi",
+    "title": "Quyên tặng"
+  },
   "inputLabel": "Văn bản QR / URL",
   "pages": {
     "main": "Trang chủ"

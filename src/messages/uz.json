@@ -1,7 +1,14 @@
 {
   "articles": "Maqolalar",
+  "back": "Orqaga",
   "blog": "Blog",
   "button": "QR kodni yuklab oling",
+  "copied": "Ko‘chirildi",
+  "copy": "Nusxalash",
+  "donate": {
+    "description": "Agar ushbu vosita foydali bo'lsa, uni kripto bilan qo'llab-quvvatlang. Saxiyligingiz uchun rahmat! Ushbu loyiha abadiy bepul bo'ladi",
+    "title": "Xayriya qiling"
+  },
   "inputLabel": "QR matni / URL",
   "pages": {
     "main": "Bosh sahifa"

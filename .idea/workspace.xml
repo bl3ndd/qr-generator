@@ -5,9 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="835d4a76-89b6-4702-9c09-dd46424e382a" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/app/[locale]/donate/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/next-sitemap.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/next-sitemap.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/[locale]/blog/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/[locale]/blog/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/components/QrGenerator.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/QrGenerator.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/messages/cn.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/messages/cn.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/messages/de.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/messages/de.json" afterDir="false" />

@@ -1,7 +1,14 @@
 {
   "articles": "Artikel",
+  "back": "Zurück",
   "blog": "Blog",
   "button": "QR-Code herunterladen",
+  "copied": "Kopiert",
+  "copy": "Kopieren",
+  "donate": {
+    "description": "Wenn dieses Tool hilfreich war, können Sie es gerne mit Krypto unterstützen. Vielen Dank für Ihre Großzügigkeit! Dieses Projekt wird für immer kostenlos sein",
+    "title": "Spenden"
+  },
   "inputLabel": "QR-Text/URL",
   "pages": {
     "main": "Hauptseite"

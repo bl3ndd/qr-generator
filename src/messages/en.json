@@ -1,7 +1,14 @@
 {
   "articles": "Articles",
+  "back": "Back",
   "blog": "Blog",
   "button": "Download QR Code",
+  "copied": "Copied",
+  "copy": "Copy",
+  "donate": {
+    "description": "If this tool was helpful, feel free to support it with crypto. Thank you for your generosity! This project will be free forever",
+    "title": "Donate"
+  },
   "inputLabel": "QR Text / URL",
   "pages": {
     "main": "Main page"

@@ -1,7 +1,14 @@
 {
   "articles": "Artikel",
+  "back": "Kembali",
   "blog": "Blog",
   "button": "Unduh Kode QR",
+  "copied": "Disalin",
+  "copy": "Menyalin",
+  "donate": {
+    "description": "Jika alat ini bermanfaat, jangan ragu untuk mendukungnya dengan kripto. Terima kasih atas kemurahan hati Anda! Proyek ini akan gratis selamanya",
+    "title": "Menyumbangkan"
+  },
   "inputLabel": "Teks QR / URL",
   "pages": {
     "main": "Halaman utama"

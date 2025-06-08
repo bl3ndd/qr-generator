@@ -1,7 +1,14 @@
 {
   "articles": "Makaleler",
+  "back": "Geri",
   "blog": "Blog",
   "button": "QR Kodunu İndir",
+  "copied": "Kopyalandı",
+  "copy": "Kopyala",
+  "donate": {
+    "description": "Bu araç faydalı olduysa, kripto ile desteklemekten çekinmeyin. Cömertliğiniz için teşekkür ederiz! Bu proje sonsuza dek ücretsiz olacak",
+    "title": "Bağış yapmak"
+  },
   "inputLabel": "QR Metin / URL",
   "pages": {
     "main": "Ana sayfa"
