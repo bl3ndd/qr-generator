@@ -12,5 +12,7 @@
     "keywords": "QRafty, QR code generator, free QR code, custom QR code, QR with logo, download QR code, QR code tool",
     "title": "QRafty — Free Custom QR Code Generator with Colors & Logo"
   },
-  "title": "Qrafty - generate QR code in 5 seconds"
+  "title": "Qrafty - generate QR code in 5 seconds",
+  "tooltip": "You can't upload logo with SVG",
+  "uploadLogo": "Upload Logo"
 }

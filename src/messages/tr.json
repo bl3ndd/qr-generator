@@ -12,5 +12,7 @@
     "keywords": "QRafty, QR kod üreteci, ücretsiz QR kodu, özel QR kodu, logolu QR, QR kodu indir, QR kod aracı",
     "title": "QRafty — Renkler ve Logo ile Ücretsiz Özel QR Kod Oluşturucu"
   },
-  "title": "Qrafty - 5 saniyede QR kodu üretin"
+  "title": "Qrafty - 5 saniyede QR kodu üretin",
+  "tooltip": "SVG ile logo yükleyemezsiniz",
+  "uploadLogo": "Logoyu Yükle"
 }

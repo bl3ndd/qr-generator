@@ -12,5 +12,7 @@
     "keywords": "QRafty, generator kode QR, kode QR gratis, kode QR khusus, QR dengan logo, unduh kode QR, alat kode QR",
     "title": "QRafty — Generator Kode QR Kustom Gratis dengan Warna & Logo"
   },
-  "title": "Qrafty - hasilkan kode QR dalam 5 detik"
+  "title": "Qrafty - hasilkan kode QR dalam 5 detik",
+  "tooltip": "Anda tidak dapat mengunggah logo dengan SVG",
+  "uploadLogo": "Unggah Logo"
 }

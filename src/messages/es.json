@@ -12,5 +12,7 @@
     "keywords": "QRafty, generador de códigos QR, código QR gratuito, código QR personalizado, QR con logotipo, descargar código QR, herramienta de código QR",
     "title": "QRafty: Generador de códigos QR personalizados y gratuitos con colores y logotipo"
   },
-  "title": "Qrafty - genera código QR en 5 segundos"
+  "title": "Qrafty - genera código QR en 5 segundos",
+  "tooltip": "No puedes cargar un logotipo con SVG",
+  "uploadLogo": "Subir logotipo"
 }

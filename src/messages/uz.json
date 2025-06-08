@@ -12,5 +12,7 @@
     "keywords": "QRafty, QR kod generatori, bepul QR kodi, maxsus QR kodi, logotipli QR, QR kodini yuklab olish, QR kod vositasi",
     "title": "QRafty - Ranglar va logotipli bepul maxsus QR kod generatori"
   },
-  "title": "Qrafty - 5 soniya ichida QR kodini yarating"
+  "title": "Qrafty - 5 soniya ichida QR kodini yarating",
+  "tooltip": "SVG bilan logotipni yuklay olmaysiz",
+  "uploadLogo": "Logotip yuklash"
 }

@@ -12,5 +12,7 @@
     "keywords": "QRafty, trình tạo mã QR, mã QR miễn phí, mã QR tùy chỉnh, mã QR có logo, tải xuống mã QR, công cụ mã QR",
     "title": "QRafty — Trình tạo mã QR tùy chỉnh miễn phí với màu sắc và logo"
   },
-  "title": "Qrafty - tạo mã QR trong 5 giây"
+  "title": "Qrafty - tạo mã QR trong 5 giây",
+  "tooltip": "Bạn không thể tải logo bằng SVG",
+  "uploadLogo": "Tải lên Logo"
 }

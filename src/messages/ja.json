@@ -12,5 +12,7 @@
     "keywords": "QRafty、QRコードジェネレーター、無料QRコード、カスタムQRコード、ロゴ付きQR、QRコードのダウンロード、QRコードツール",
     "title": "QRafty — カラーとロゴ付きの無料カスタムQRコードジェネレーター"
   },
-  "title": "Qrafty - 5秒でQRコードを生成"
+  "title": "Qrafty - 5秒でQRコードを生成",
+  "tooltip": "SVGでロゴをアップロードすることはできません",
+  "uploadLogo": "ロゴをアップロード"
 }

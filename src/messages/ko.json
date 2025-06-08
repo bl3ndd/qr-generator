@@ -12,5 +12,7 @@
     "keywords": "QRafty, QR 코드 생성기, 무료 QR 코드, 사용자 정의 QR 코드, 로고가 있는 QR 코드, QR 코드 다운로드, QR 코드 도구",
     "title": "QRafty — 색상 및 로고가 포함된 무료 맞춤형 QR 코드 생성기"
   },
-  "title": "Qrafty - 5초 만에 QR 코드 생성"
+  "title": "Qrafty - 5초 만에 QR 코드 생성",
+  "tooltip": "SVG로 로고를 업로드할 수 없습니다.",
+  "uploadLogo": "로고 업로드"
 }

@@ -12,5 +12,7 @@
     "keywords": "QRafty, penjana kod QR, kod QR percuma, kod QR tersuai, QR dengan logo, muat turun kod QR, alat kod QR",
     "title": "QRafty — Penjana Kod QR Tersuai Percuma dengan Warna & Logo"
   },
-  "title": "Qrafty - jana kod QR dalam 5 saat"
+  "title": "Qrafty - jana kod QR dalam 5 saat",
+  "tooltip": "Anda tidak boleh memuat naik logo dengan SVG",
+  "uploadLogo": "Muat naik Logo"
 }
