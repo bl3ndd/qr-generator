@@ -7,6 +7,9 @@ import { Input, Typography, Button, Select, Upload, Tooltip } from 'antd'
 import { useTranslations } from 'next-intl'
 import type { UploadFile } from 'antd/es/upload/interface'
 
+import { logEvent } from 'firebase/analytics'
+import { analytics, AnalyticsEvents } from '../../analytics/analytics'
+
 import {
   UploadOutlined,
   InfoCircleOutlined,
@@ -95,6 +98,8 @@ export default function QRCodeGenerator({ origin, locale }: { origin: string; lo
   const downloadQr = () => {
     if (!qrRef.current) return
 
+    logEvent(analytics, AnalyticsEvents.qr_download_button_click)
+
     const qrCanvas = qrRef.current
     const size = qrCanvas.width
     const isSvg = downloadFormat === 'svg'
@@ -163,6 +168,11 @@ export default function QRCodeGenerator({ origin, locale }: { origin: string; lo
     }
   }
 
+  const handleSelectFormat = (val: DownloadFormats) => {
+    logEvent(analytics, AnalyticsEvents.format_select_click, { format: val })
+    setDownloadFormat(val)
+  }
+
   return (
     <div className="min-h-screen flex flex-col items-center justify-start bg-gradient-to-br from-indigo-100 via-white to-pink-100 px-4 md:py-10 py-4">
       <div className="max-w-[800px]">
@@ -185,26 +195,26 @@ export default function QRCodeGenerator({ origin, locale }: { origin: string; lo
             </div>
 
             <div className="flex md:flex-row gap-6">
-              <CustomColorPicker
-                label="Foreground Color"
-                color={darkColor}
-                setColor={setDarkColor}
-              />
-              <CustomColorPicker
-                label="Background Color"
-                color={lightColor}
-                setColor={setLightColor}
-              />
+              <div onClick={() => logEvent(analytics, AnalyticsEvents.foreground_color_click)}>
+                <CustomColorPicker
+                  label="Foreground Color"
+                  color={darkColor}
+                  setColor={setDarkColor}
+                />
+              </div>
+              <div onClick={() => logEvent(analytics, AnalyticsEvents.background_color_click)}>
+                <CustomColorPicker
+                  label="Background Color"
+                  color={lightColor}
+                  setColor={setLightColor}
+                />
+              </div>
             </div>
 
             <div className="w-full flex items-end gap-4">
               <div className="w-40">
                 <Typography.Title level={5}>{t('selectLabel')}</Typography.Title>
-                <Select
-                  className="w-full"
-                  value={downloadFormat}
-                  onChange={(val: DownloadFormats) => setDownloadFormat(val)}
-                >
+                <Select className="w-full" value={downloadFormat} onChange={handleSelectFormat}>
                   <Select.Option value="svg">SVG</Select.Option>
                   <Select.Option value="jpeg">JPEG</Select.Option>
                   <Select.Option value="png">PNG</Select.Option>
@@ -213,23 +223,32 @@ export default function QRCodeGenerator({ origin, locale }: { origin: string; lo
               </div>
 
               <div className="flex items-center gap-2">
-                <Upload
-                  disabled={downloadFormat === 'svg'}
-                  beforeUpload={handleUpload}
-                  showUploadList={false}
-                  accept="image/*"
-                >
-                  <Button
+                <div onClick={() => logEvent(analytics, AnalyticsEvents.upload_logo_click)}>
+                  <Upload
                     disabled={downloadFormat === 'svg'}
-                    icon={<UploadOutlined />}
-                    type="default"
+                    beforeUpload={handleUpload}
+                    showUploadList={false}
+                    accept="image/*"
                   >
-                    {t('uploadLogo')}
-                  </Button>
-                </Upload>
+                    <Button
+                      disabled={downloadFormat === 'svg'}
+                      icon={<UploadOutlined />}
+                      type="default"
+                    >
+                      {t('uploadLogo')}
+                    </Button>
+                  </Upload>
+                </div>
 
                 {logoImage && (
-                  <DeleteOutlined onClick={() => setLogoImage(null)} style={{ fontSize: '20px' }} />
+                  <div
+                    onClick={() => logEvent(analytics, AnalyticsEvents.delete_logo_button_click)}
+                  >
+                    <DeleteOutlined
+                      onClick={() => setLogoImage(null)}
+                      style={{ fontSize: '20px' }}
+                    />
+                  </div>
                 )}
 
                 <Tooltip placement="top" title={t('tooltip')}>
@@ -267,15 +286,21 @@ export default function QRCodeGenerator({ origin, locale }: { origin: string; lo
           </div>
         </div>
 
-        <div className="mt-8 mb-4 flex items-center">
+        <div className="md:mt-8 mt-4 mb-4 flex md:flex-row flex-col gap-2 md:items-center">
           <div className="flex gap-2">
-            <Link href={`/${locale}/blog`}>
+            <Link
+              href={`/${locale}/blog`}
+              onClick={() => logEvent(analytics, AnalyticsEvents.blog_link_click)}
+            >
               <Button icon={<PaperClipOutlined />} size="large" color="default" variant="filled">
                 {t('blog')}
               </Button>
             </Link>
 
-            <Link href={`/${locale}/donate`}>
+            <Link
+              href={`/${locale}/donate`}
+              onClick={() => logEvent(analytics, AnalyticsEvents.donate_link_click)}
+            >
               <Button icon={<DollarOutlined />} size="large" color="danger" variant="filled">
                 {t('donate.title')}
               </Button>

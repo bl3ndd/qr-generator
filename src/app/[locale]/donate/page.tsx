@@ -5,6 +5,9 @@ import { CopyOutlined, CheckOutlined } from '@ant-design/icons'
 import { useState } from 'react'
 import { useTranslations } from 'next-intl'
 
+import { logEvent } from 'firebase/analytics'
+import { analytics, AnalyticsEvents } from '../../../analytics/analytics'
+
 const wallets = [
   {
     name: 'Ethereum (ETH, Arb, Base)',
@@ -28,9 +31,10 @@ export default function DonatePage() {
   const t = useTranslations()
   const [copiedIndex, setCopiedIndex] = useState<number | null>(null)
 
-  const handleCopy = async (address: string, index: number) => {
+  const handleCopy = async (address: { name: string; address: string }, index: number) => {
+    logEvent(analytics, AnalyticsEvents.donate_address_copy_button_click, { address: address.name })
     try {
-      await navigator.clipboard.writeText(address)
+      await navigator.clipboard.writeText(address.address)
       setCopiedIndex(index)
       setTimeout(() => setCopiedIndex(null), 2000)
     } catch (err) {
@@ -57,7 +61,7 @@ export default function DonatePage() {
                 <Button
                   size="small"
                   icon={copiedIndex === index ? <CheckOutlined /> : <CopyOutlined />}
-                  onClick={() => handleCopy(wallet.address, index)}
+                  onClick={() => handleCopy(wallet, index)}
                 >
                   {copiedIndex === index ? t('copied') : t('copy')}
                 </Button>

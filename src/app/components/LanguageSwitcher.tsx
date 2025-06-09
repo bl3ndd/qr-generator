@@ -2,6 +2,8 @@
 
 import { usePathname, useRouter } from 'next/navigation'
 import { useTransition } from 'react'
+import { logEvent } from 'firebase/analytics'
+import { analytics, AnalyticsEvents } from '@/analytics/analytics'
 
 const languages = [
   { code: 'cn', label: '中文', emoji: '🇨🇳' },
@@ -35,6 +37,9 @@ export default function LanguageSwitcher({ origin }: { origin: string }) {
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const newLocale = e.target.value
     const newPath = ['/', newLocale, ...segments.slice(2)].join('/')
+
+    logEvent(analytics, AnalyticsEvents.language_select_click, { language: newLocale })
+
     startTransition(() => {
       router.push(origin + newPath)
     })
