@@ -4,7 +4,6 @@ import React, { useRef, useState } from 'react'
 import { QRCodeCanvas, QRCodeSVG } from 'qrcode.react'
 import { CustomColorPicker } from '@/app/components/ColorPicker'
 import { Input, Typography, Button, Select, Upload, Tooltip } from 'antd'
-import { useTranslations } from 'next-intl'
 import type { UploadFile } from 'antd/es/upload/interface'
 
 import { logEvent } from 'firebase/analytics'
@@ -23,9 +22,7 @@ import Link from 'next/link'
 
 type DownloadFormats = 'webp' | 'svg' | 'jpeg' | 'png'
 
-export default function QRCodeGenerator({ origin, locale }: { origin: string; locale: string }) {
-  const t = useTranslations()
-
+export default function QRCodeGenerator() {
   const [qrString, setQrString] = useState('https://qrafty.cutbg.org/')
   const [darkColor, setDarkColor] = useState('#000000')
   const [lightColor, setLightColor] = useState('#FFFFFF')
@@ -177,14 +174,14 @@ export default function QRCodeGenerator({ origin, locale }: { origin: string; lo
     <div className="min-h-screen flex flex-col items-center justify-start bg-gradient-to-br from-indigo-100 via-white to-pink-100 px-4 md:py-10 py-4">
       <div className="max-w-[800px]">
         <h1 className="text-2xl md:text-5xl font-bold text-center text-gray-800 md:mb-8 mb-4">
-          {t('title')}
+          Qrafty - generate QR code in 5 seconds
         </h1>
 
         <div className="max-w-6xl bg-white shadow-2xl rounded-3xl p-4 sm:p-8 flex flex-col md:flex-row gap-10 mb-4">
           {/* Left Panel */}
           <div className="md:w-1/2 flex flex-col gap-6 md:mt-12">
             <div>
-              <Typography.Title level={5}>{t('inputLabel')}</Typography.Title>
+              <Typography.Title level={5}>QR Text / URL</Typography.Title>
               <Input
                 type="text"
                 size="large"
@@ -213,7 +210,7 @@ export default function QRCodeGenerator({ origin, locale }: { origin: string; lo
 
             <div className="w-full flex items-end gap-4">
               <div className="w-40">
-                <Typography.Title level={5}>{t('selectLabel')}</Typography.Title>
+                <Typography.Title level={5}>Image Format</Typography.Title>
                 <Select className="w-full" value={downloadFormat} onChange={handleSelectFormat}>
                   <Select.Option value="svg">SVG</Select.Option>
                   <Select.Option value="jpeg">JPEG</Select.Option>
@@ -235,7 +232,7 @@ export default function QRCodeGenerator({ origin, locale }: { origin: string; lo
                       icon={<UploadOutlined />}
                       type="default"
                     >
-                      {t('uploadLogo')}
+                      Upload Logo
                     </Button>
                   </Upload>
                 </div>
@@ -251,7 +248,7 @@ export default function QRCodeGenerator({ origin, locale }: { origin: string; lo
                   </div>
                 )}
 
-                <Tooltip placement="top" title={t('tooltip')}>
+                <Tooltip placement="top" title="You can't upload logo with SVG">
                   <InfoCircleOutlined style={{ fontSize: '20px' }} />
                 </Tooltip>
               </div>
@@ -281,7 +278,7 @@ export default function QRCodeGenerator({ origin, locale }: { origin: string; lo
             </div>
 
             <Button type="primary" size="large" onClick={downloadQr}>
-              {t('button')}
+              Download QR Code
             </Button>
           </div>
         </div>
@@ -289,25 +286,25 @@ export default function QRCodeGenerator({ origin, locale }: { origin: string; lo
         <div className="md:mt-8 mt-4 mb-4 flex md:flex-row flex-col gap-2 md:items-center">
           <div className="flex gap-2">
             <Link
-              href={`/${locale}/blog`}
+              href={`/blog`}
               onClick={() => logEvent(analytics, AnalyticsEvents.blog_link_click)}
             >
               <Button icon={<PaperClipOutlined />} size="large" color="default" variant="filled">
-                {t('blog')}
+                Blog
               </Button>
             </Link>
 
             <Link
-              href={`/${locale}/donate`}
+              href={`/donate`}
               onClick={() => logEvent(analytics, AnalyticsEvents.donate_link_click)}
             >
               <Button icon={<DollarOutlined />} size="large" color="danger" variant="filled">
-                {t('donate.title')}
+                Donate
               </Button>
             </Link>
           </div>
 
-          <LanguageSwitcher origin={origin} />
+          {/*<LanguageSwitcher origin={origin} />*/}
         </div>
       </div>
     </div>

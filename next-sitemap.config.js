@@ -1,32 +1,8 @@
-const locales = [
-  'cn',
-  'de',
-  'en',
-  'es',
-  'fr',
-  'hi',
-  'id',
-  'it',
-  'ja',
-  'kk',
-  'ko',
-  'ky',
-  'ms',
-  'pt',
-  'ru',
-  'th',
-  'tr',
-  'uz',
-  'vi',
-]
-
-// Добавим сюда список всех маршрутов (без локали)
 const basePaths = [
   '', // главная страница — `/[locale]`
   '/blog/how-to-create-qr-code-online',
   '/blog/qrafty-new-functionality',
   '/donate',
-  // добавь другие базовые маршруты по аналогии
 ]
 
 module.exports = {
@@ -47,19 +23,12 @@ module.exports = {
   additionalPaths: async (config) => {
     const allPaths = []
 
-    for (const locale of locales) {
-      for (const basePath of basePaths) {
-        const fullPath = `/${locale}${basePath}`
-        allPaths.push(await config.transform(config, fullPath))
-      }
+    for (const basePath of basePaths) {
+      const fullPath = `/${basePath}`
+      allPaths.push(await config.transform(config, fullPath))
     }
 
     return allPaths
-  },
-
-  i18n: {
-    locales,
-    defaultLocale: 'en',
   },
 
   robotsTxtOptions: {

@@ -6,10 +6,23 @@
   <component name="ChangeListManager">
     <list default="true" id="835d4a76-89b6-4702-9c09-dd46424e382a" name="Changes" comment="asd">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/[locale]/blog/[slug]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/[locale]/blog/[slug]/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/[locale]/blog/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/[locale]/blog/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/[locale]/donate/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/[locale]/donate/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/next-sitemap.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/next-sitemap.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/next.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/next.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/sitemap-0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/public/sitemap-0.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/[locale]/blog/[slug]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/blog/[slug]/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/[locale]/blog/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/blog/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/[locale]/donate/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/donate/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/[locale]/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/[locale]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/Articles.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/QrGenerator.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/QrGenerator.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/content/en/qrafty-new-functionality.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/en/qrafty-new-functionality.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/i18n/navigation.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/i18n/request.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/i18n/routing.ts" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/articles.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/articles.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/middleware.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/middleware.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,9 +32,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="TypeScript File" />
         <option value="TypeScript JSX File" />
         <option value="JavaScript File" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -67,6 +80,8 @@
       <recent name="$PROJECT_DIR$/src/content/tr" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$/src/app" />
       <recent name="$PROJECT_DIR$/public" />
     </key>
   </component>
@@ -105,7 +120,7 @@
       <workItem from="1747638709914" duration="1543000" />
       <workItem from="1747759723445" duration="9446000" />
       <workItem from="1749294125604" duration="5789000" />
-      <workItem from="1749747463761" duration="4622000" />
+      <workItem from="1749747463761" duration="8378000" />
     </task>
     <servers />
   </component>

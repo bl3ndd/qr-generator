@@ -1,15 +1,12 @@
-import { NextIntlClientProvider, hasLocale } from 'next-intl'
-import { notFound } from 'next/navigation'
-import { routing } from '@/i18n/routing'
 import { getMessages } from 'next-intl/server'
-import './../globals.css'
+import './globals.css'
 import { Analytics } from '@vercel/analytics/next'
 import { AntdRegistry } from '@ant-design/nextjs-registry'
 
 import { SpeedInsights } from '@vercel/speed-insights/next'
 
 import { Metadata } from 'next'
-import { appName } from '../../../config'
+import { appName } from '../../config'
 import { Roboto } from 'next/font/google'
 
 export async function generateMetadata({
@@ -17,17 +14,17 @@ export async function generateMetadata({
 }: {
   params: { locale: string }
 }): Promise<Metadata> {
-  const messages = await getMessages()
-  const { locale } = await params
   return {
     title: {
-      default: messages.seo.title,
+      default: 'QRafty — Free Custom QR Code Generator with Colors & Logo',
       template: `%s | ${appName}`,
     },
-    description: messages.seo.description,
+    description:
+      'QRafty is a fast and free QR code generator that lets you customize your QR code with colors, shapes, and logos. Download in high quality instantly.',
     openGraph: {
-      title: messages.seo.title,
-      description: messages.seo.description,
+      title: 'QRafty — Free Custom QR Code Generator with Colors & Logo',
+      description:
+        'QRafty is a fast and free QR code generator that lets you customize your QR code with colors, shapes, and logos. Download in high quality instantly.',
       url: 'https://qrafty.cutbg.org',
       siteName: appName,
       images: [
@@ -35,10 +32,10 @@ export async function generateMetadata({
           url: '/og-image.jpg',
           width: 1200,
           height: 630,
-          alt: messages.seo.title,
+          alt: 'QRafty — Free Custom QR Code Generator with Colors & Logo',
         },
       ],
-      locale: locale,
+      locale: 'en',
       type: 'website',
     },
     icons: {
@@ -54,30 +51,17 @@ const roboto = Roboto({
   variable: '--font-roboto', // для CSS-переменной (опционально)
 })
 
-export default async function LocaleLayout({
-  children,
-  params,
-}: {
-  children: React.ReactNode
-  params: Promise<{ locale: string }>
-}) {
-  const { locale } = await params
-  if (!hasLocale(routing.locales, locale)) {
-    notFound()
-  }
-
+export default async function LocaleLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html className={roboto.className} lang={locale}>
+    <html className={roboto.className} lang="en">
       <head>
         <link rel="canonical" href="https://qrafty.cutbg.org/en" />
         <meta name="msvalidate.01" content="F1D595D6C9E51FBCD32D16E50F43E7B3" />
       </head>
       <body>
-        <NextIntlClientProvider>
-          <AntdRegistry>{children}</AntdRegistry>
-          <Analytics />
-          <SpeedInsights />
-        </NextIntlClientProvider>
+        <AntdRegistry>{children}</AntdRegistry>
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   )

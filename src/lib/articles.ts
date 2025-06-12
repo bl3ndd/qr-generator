@@ -11,8 +11,8 @@ export function getPostSlugs(locale: string) {
   return fs.readdirSync(dir).map((filename) => filename.replace(/\.md$/, ''))
 }
 
-export async function getPostData(locale: string, slug: string) {
-  const fullPath = path.join(contentDirectory, locale, `${slug}.md`)
+export async function getPostData(slug: string) {
+  const fullPath = path.join(contentDirectory, 'en', `${slug}.md`)
 
   if (!fs.existsSync(fullPath)) {
     return null // если файла нет, вернём null
@@ -25,7 +25,6 @@ export async function getPostData(locale: string, slug: string) {
 
   return {
     slug,
-    locale,
     contentHtml,
     title: data.title,
     description: data.description,

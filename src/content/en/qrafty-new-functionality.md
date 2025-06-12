@@ -37,7 +37,7 @@ Great for those working with vector graphics or embedding directly into HTML/CSS
 Since this project is 100% free and open to everyone, we added a small **donation page with crypto wallets**.
 
 If you'd like to support development — feel free to send some crypto 💙  
-👉 Page: [Donate](https://qrafty.cutbg.org/en/donate)
+👉 Page: [Donate](https://qrafty.cutbg.org/donate)
 
 ---
 

@@ -3,10 +3,9 @@
 import { Typography, Button } from 'antd'
 import { CopyOutlined, CheckOutlined } from '@ant-design/icons'
 import { useState } from 'react'
-import { useTranslations } from 'next-intl'
 
 import { logEvent } from 'firebase/analytics'
-import { analytics, AnalyticsEvents } from '../../../analytics/analytics'
+import { analytics, AnalyticsEvents } from '../../analytics/analytics'
 
 const wallets = [
   {
@@ -28,7 +27,6 @@ const wallets = [
 ]
 
 export default function DonatePage() {
-  const t = useTranslations()
   const [copiedIndex, setCopiedIndex] = useState<number | null>(null)
 
   const handleCopy = async (address: { name: string; address: string }, index: number) => {
@@ -45,9 +43,10 @@ export default function DonatePage() {
   return (
     <div className="min-h-screen md:px-4 px-2 py-2 md:py-20 bg-gradient-to-br from-yellow-100 to-white flex justify-center">
       <div className="max-w-xl w-full text-center mt-4">
-        <Typography.Title level={2}>{t('donate.title')}</Typography.Title>
+        <Typography.Title level={2}>Donate</Typography.Title>
         <Typography.Paragraph className="text-base text-gray-600 mb-8">
-          {t('donate.description')}
+          If this tool was helpful, feel free to support it with crypto. Thank you for your
+          generosity! This project will be free forever
         </Typography.Paragraph>
 
         <div className="md:space-y-6 space-y-2">
@@ -63,7 +62,7 @@ export default function DonatePage() {
                   icon={copiedIndex === index ? <CheckOutlined /> : <CopyOutlined />}
                   onClick={() => handleCopy(wallet, index)}
                 >
-                  {copiedIndex === index ? t('copied') : t('copy')}
+                  {copiedIndex === index ? 'Copied' : 'Copy'}
                 </Button>
               </div>
             </div>
@@ -72,7 +71,7 @@ export default function DonatePage() {
 
         <div className="md:mt-10 mt-2">
           <Button type="link" href="/">
-            ← {t('pages.main')}
+            ← Main Page
           </Button>
         </div>
       </div>
