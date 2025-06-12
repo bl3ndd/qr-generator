@@ -27,7 +27,8 @@ export async function getPostData(locale: string, slug: string) {
     slug,
     locale,
     contentHtml,
-    ...data,
+    title: data.title,
+    description: data.description,
   }
 }
 export function getAllPosts(locale: string) {

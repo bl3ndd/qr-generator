@@ -1,5 +1,22 @@
 // app/[locale]/[slug]/page.tsx
 import { getPostData, getPostSlugs } from '@/lib/articles'
+import { getTranslations } from 'next-intl/server'
+
+type Props = {
+  params: Promise<{ locale: string; slug: string }>
+}
+
+export async function generateMetadata({ params }: Props) {
+  const { locale, slug } = await params
+  const t = await getTranslations({ locale })
+  const post = await getPostData(locale, slug)
+
+  return {
+    title: post?.title,
+    description: post?.description,
+    keywords: post?.description.split(', '),
+  }
+}
 
 export async function generateStaticParams() {
   const locales = ['en', 'ru']

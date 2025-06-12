@@ -5,11 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="835d4a76-89b6-4702-9c09-dd46424e382a" name="Changes" comment="asd">
-      <change afterPath="$PROJECT_DIR$/src/analytics/analytics.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/[locale]/blog/[slug]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/[locale]/blog/[slug]/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/[locale]/blog/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/[locale]/blog/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/[locale]/donate/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/[locale]/donate/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/LanguageSwitcher.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/LanguageSwitcher.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/QrGenerator.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/QrGenerator.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/articles.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/articles.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,7 +47,7 @@
     "git-widget-placeholder": "main",
     "js.debugger.nextJs.config.created.client": "true",
     "js.debugger.nextJs.config.created.server": "true",
-    "last_opened_file_path": "/Users/evgenyvarzin/Documents/projects/qr-scanner/src/content/ru",
+    "last_opened_file_path": "/Users/evgenyvarzin/Documents/projects/qr-scanner/src/app/components",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
@@ -60,11 +60,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/app/components" />
       <recent name="$PROJECT_DIR$/src/content/ru" />
       <recent name="$PROJECT_DIR$/src/content/vi" />
       <recent name="$PROJECT_DIR$/src/content/uz" />
       <recent name="$PROJECT_DIR$/src/content/tr" />
-      <recent name="$PROJECT_DIR$/src/content/th" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/public" />
@@ -105,6 +105,7 @@
       <workItem from="1747638709914" duration="1543000" />
       <workItem from="1747759723445" duration="9446000" />
       <workItem from="1749294125604" duration="5789000" />
+      <workItem from="1749747463761" duration="4622000" />
     </task>
     <servers />
   </component>

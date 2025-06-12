@@ -1,7 +1,8 @@
 import Link from 'next/link'
-import { getAllPosts } from '../../../lib/articles'
+import { getAllPosts, getPostData } from '../../../lib/articles'
 import { Button } from 'antd'
 import { ArrowLeftOutlined } from '@ant-design/icons'
+import { getTranslations } from 'next-intl/server'
 
 interface Post {
   slug: string
@@ -11,7 +12,25 @@ interface Post {
 }
 
 interface BlogPageProps {
-  params: { locale: string }
+  params: { locale: string; slug: string }
+}
+
+export async function generateMetadata({ params }: BlogPageProps) {
+  const { locale, slug } = await params
+  const t = await getTranslations({ locale })
+
+  return {
+    title: t('blog'),
+    description:
+      'Read the latest articles, tips, and updates on our blog. Stay up to date with web development, design, and tech trends.',
+    keywords:
+      'blog, articles, news, updates, tips, web development, technology, programming, design, trends, projects, ideas'.split(
+        ', '
+      ),
+    // title: t('blog'),
+    // description: t('seo.blog.description'),
+    // keywords: t('seo.blog.keywords').split(', '),
+  }
 }
 
 export default async function BlogPage({ params }: BlogPageProps) {
