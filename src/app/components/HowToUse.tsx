@@ -9,8 +9,8 @@ export function HowToUse() {
         and get your custom QR code ready to use!
       </p>
 
-      <div className="relative pl-8 space-y-16">
-        <div className="flex flex-col-reverse md:flex-row-re items-start md:items-center gap-6">
+      <div className="relative space-y-16">
+        <div className="flex flex-col-reverse md:flex-row items-start md:items-center gap-6">
           <div className="flex-1 rounded-lg overflow-hidden">
             <video src="/gifs/enter-text.mp4" autoPlay muted loop playsInline></video>
           </div>
