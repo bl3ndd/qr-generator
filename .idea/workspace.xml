@@ -5,8 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="835d4a76-89b6-4702-9c09-dd46424e382a" name="Changes" comment="asd">
+      <change afterPath="$PROJECT_DIR$/src/app/components/Faq.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/HowToUse.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/HowToUse.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/page.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,7 +109,7 @@
       <workItem from="1749294125604" duration="5789000" />
       <workItem from="1749747463761" duration="10342000" />
       <workItem from="1750009062883" duration="67000" />
-      <workItem from="1751191745177" duration="6448000" />
+      <workItem from="1751191745177" duration="6850000" />
     </task>
     <servers />
   </component>
