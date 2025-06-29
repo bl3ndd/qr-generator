@@ -171,7 +171,7 @@ export default function QRCodeGenerator() {
   }
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-start bg-gradient-to-br from-indigo-100 via-white to-pink-100 px-4 md:py-10 py-4">
+    <div className="flex flex-col items-center justify-start bg-gradient-to-br from-indigo-100 via-white to-pink-100 px-4 md:py-10 py-4">
       <div className="max-w-[800px]">
         <h1 className="text-2xl md:text-5xl font-bold text-center text-gray-800 md:mb-8 mb-4">
           Qrafty - generate QR code in 5 seconds

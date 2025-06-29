@@ -1,4 +1,5 @@
 import QrGenerator from '@/app/components/QrGenerator'
+import { HowToUse } from '@/app/components/HowToUse'
 
 export async function generateMetadata() {
   return {
@@ -16,6 +17,7 @@ export default async function Index() {
   return (
     <div>
       <QrGenerator />
+      <HowToUse />
     </div>
   )
 }

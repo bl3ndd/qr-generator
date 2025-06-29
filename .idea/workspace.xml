@@ -5,24 +5,70 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="835d4a76-89b6-4702-9c09-dd46424e382a" name="Changes" comment="asd">
+      <change afterPath="$PROJECT_DIR$/public/gifs/customize.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/gifs/download.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/gifs/enter-text.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/components/HowToUse.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/next-sitemap.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/next-sitemap.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/next.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/next.config.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fetch-locales.mjs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/public/sitemap-0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/public/sitemap-0.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/[locale]/blog/[slug]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/blog/[slug]/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/[locale]/blog/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/blog/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/[locale]/donate/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/donate/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/[locale]/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/[locale]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/Articles.tsx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/components/QrGenerator.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/QrGenerator.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/content/en/qrafty-new-functionality.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/en/qrafty-new-functionality.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/i18n/navigation.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/i18n/request.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/i18n/routing.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/articles.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/articles.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/middleware.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/middleware.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/content/cn/how-to-create-qr-code-online.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/content/cn/qrafty-new-functionality.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/content/de/how-to-create-qr-code-online.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/content/de/qrafty-new-functionality.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/content/es/how-to-create-qr-code-online.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/content/es/qrafty-new-functionality.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/content/fr/how-to-create-qr-code-online.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/content/fr/qrafty-new-functionality.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/content/hi/how-to-create-qr-code-online.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/content/hi/qrafty-new-functionality.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/content/id/how-to-create-qr-code-online.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/content/id/qrafty-new-functionality.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/content/it/how-to-create-qr-code-online.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/content/it/qrafty-new-functionality.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/content/ja/how-to-create-qr-code-online.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/content/ja/qrafty-new-functionality.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/content/kk/how-to-create-qr-code-online.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/content/kk/qrafty-new-functionality.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/content/ko/how-to-create-qr-code-online.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/content/ko/qrafty-new-functionality.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/content/ky/how-to-create-qr-code-online.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/content/ky/qrafty-new-functionality.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/content/ms/how-to-create-qr-code-online.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/content/ms/qrafty-new-functionality.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/content/pt/how-to-create-qr-code-online.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/content/pt/qrafty-new-functionality.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/content/ru/how-to-create-qr-code-online.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/content/ru/qrafty-new-functionality.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/content/th/how-to-create-qr-code-online.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/content/th/qrafty-new-functionality.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/content/tr/how-to-create-qr-code-online.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/content/tr/qrafty-new-functionality.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/content/uz/how-to-create-qr-code-online.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/content/uz/qrafty-new-functionality.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/content/vi/how-to-create-qr-code-online.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/content/vi/qrafty-new-functionality.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/messages/cn.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/messages/de.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/messages/en.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/messages/es.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/messages/fr.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/messages/hi.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/messages/id.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/messages/it.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/messages/ja.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/messages/kk.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/messages/ko.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/messages/ky.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/messages/ms.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/messages/pt.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/messages/ru.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/messages/th.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/messages/tr.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/messages/uz.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/messages/vi.json" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,25 +98,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "js.debugger.nextJs.config.created.client": "true",
-    "js.debugger.nextJs.config.created.server": "true",
-    "last_opened_file_path": "/Users/evgenyvarzin/Documents/projects/qr-scanner/src/app/components",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "prettierjs.PrettierConfiguration.Package": "/Users/evgenyvarzin/Documents/projects/qr-scanner/node_modules/prettier",
-    "settings.editor.selected.configurable": "settings.javascript.prettier",
-    "ts.external.directory.path": "/Users/evgenyvarzin/Documents/projects/qr-scanner/node_modules/typescript/lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;js.debugger.nextJs.config.created.client&quot;: &quot;true&quot;,
+    &quot;js.debugger.nextJs.config.created.server&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/evgenyvarzin/Documents/projects/qr-scanner/src/app/components&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/Users/evgenyvarzin/Documents/projects/qr-scanner/node_modules/prettier&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.javascript.prettier&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/evgenyvarzin/Documents/projects/qr-scanner/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/app/components" />
@@ -80,9 +126,11 @@
       <recent name="$PROJECT_DIR$/src/content/tr" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public/gifs" />
+      <recent name="$PROJECT_DIR$/public" />
+      <recent name="$PROJECT_DIR$/src/assets" />
       <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/src/app" />
-      <recent name="$PROJECT_DIR$/public" />
     </key>
   </component>
   <component name="RunManager" selected="npm.Next.js: server-side">
@@ -103,7 +151,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-6a121458b545-JavaScript-WS-251.25410.117" />
+        <option value="bundled-js-predefined-d6986cc7102b-09060db00ec0-JavaScript-WS-251.26927.40" />
       </set>
     </attachedChunks>
   </component>
@@ -120,7 +168,9 @@
       <workItem from="1747638709914" duration="1543000" />
       <workItem from="1747759723445" duration="9446000" />
       <workItem from="1749294125604" duration="5789000" />
-      <workItem from="1749747463761" duration="8378000" />
+      <workItem from="1749747463761" duration="10342000" />
+      <workItem from="1750009062883" duration="67000" />
+      <workItem from="1751191745177" duration="6040000" />
     </task>
     <servers />
   </component>
