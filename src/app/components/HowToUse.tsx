@@ -1,5 +1,3 @@
-import Image from 'next/image'
-
 export function HowToUse() {
   return (
     <section className="max-w-5xl mx-auto px-4 py-16">
@@ -12,7 +10,7 @@ export function HowToUse() {
       </p>
 
       <div className="relative pl-8 space-y-16">
-        <div className="flex flex-col md:flex-row items-start md:items-center gap-6">
+        <div className="flex flex-col-reverse md:flex-row-re items-start md:items-center gap-6">
           <div className="flex-1 rounded-lg overflow-hidden">
             <video src="/gifs/enter-text.mp4" autoPlay muted loop playsInline></video>
           </div>
@@ -38,7 +36,7 @@ export function HowToUse() {
           </div>
         </div>
 
-        <div className="flex flex-col md:flex-row items-start md:items-center gap-6">
+        <div className="flex flex-col-reverse md:flex-row items-start md:items-center gap-6">
           <div className="flex-1 rounded-2xl overflow-hidden">
             <video src="/gifs/download.mp4" autoPlay muted loop playsInline></video>
           </div>
