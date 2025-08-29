@@ -11,9 +11,6 @@ export function HowToUse() {
 
       <div className="relative space-y-16">
         <div className="flex flex-col-reverse md:flex-row items-start md:items-center gap-6">
-          <div className="flex-1 rounded-lg overflow-hidden">
-            <video src="/gifs/enter-text.mp4" autoPlay muted loop playsInline></video>
-          </div>
           <div className="flex-1">
             <h3 className="text-xl font-semibold mb-2">Step 1: Enter Your Text or URL</h3>
             <p className="text-gray-700">
@@ -31,15 +28,9 @@ export function HowToUse() {
               make your QR code truly yours.
             </p>
           </div>
-          <div className="flex-1 rounded-2xl overflow-hidden">
-            <video src="/gifs/customize.mp4" autoPlay muted loop playsInline></video>
-          </div>
         </div>
 
         <div className="flex flex-col-reverse md:flex-row items-start md:items-center gap-6">
-          <div className="flex-1 rounded-2xl overflow-hidden">
-            <video src="/gifs/download.mp4" autoPlay muted loop playsInline></video>
-          </div>
           <div className="flex-1">
             <h3 className="text-xl font-semibold mb-2">Step 3: Download & Add Your Logo</h3>
             <p className="text-gray-700">

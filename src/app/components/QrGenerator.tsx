@@ -3,7 +3,7 @@
 import React, { useRef, useState } from 'react'
 import { QRCodeCanvas, QRCodeSVG } from 'qrcode.react'
 import { CustomColorPicker } from '@/app/components/ColorPicker'
-import { Input, Typography, Button, Select, Upload, Tooltip } from 'antd'
+import { Input, Typography, Button, Select, Upload, Tooltip, Space } from 'antd'
 import type { UploadFile } from 'antd/es/upload/interface'
 
 import { logEvent } from 'firebase/analytics'
@@ -15,24 +15,145 @@ import {
   DeleteOutlined,
   DollarOutlined,
   PaperClipOutlined,
+  LinkOutlined,
+  UserOutlined,
+  MailOutlined,
+  MessageOutlined,
+  WifiOutlined,
+  FacebookOutlined,
+  TwitterOutlined,
 } from '@ant-design/icons'
 
 import LanguageSwitcher from '@/app/components/LanguageSwitcher'
 import Link from 'next/link'
 
 type DownloadFormats = 'webp' | 'svg' | 'jpeg' | 'png'
+type QRCodeType = 'url' | 'vcard' | 'email' | 'sms' | 'wifi' | 'facebook' | 'twitter'
+
+interface VCardData {
+  firstName: string
+  lastName: string
+  phone: string
+  email: string
+  company: string
+  title: string
+  address: string
+}
+
+interface EmailData {
+  to: string
+  subject: string
+  body: string
+}
+
+interface SMSData {
+  phone: string
+  message: string
+}
+
+interface WiFiData {
+  ssid: string
+  password: string
+  encryption: 'WPA' | 'WEP' | 'nopass'
+}
+
+interface SocialData {
+  username: string
+  message?: string
+}
 
 export default function QRCodeGenerator() {
+  const [qrType, setQrType] = useState<QRCodeType>('url')
   const [qrString, setQrString] = useState('https://qrafty.cutbg.org/')
   const [darkColor, setDarkColor] = useState('#000000')
   const [lightColor, setLightColor] = useState('#FFFFFF')
   const [downloadFormat, setDownloadFormat] = useState<DownloadFormats>('svg')
   const [logoImage, setLogoImage] = useState<string | null>(null)
 
-  const qrRef = useRef<HTMLCanvasElement>(null)
+  // Form data for different QR types
+  const [vcardData, setVcardData] = useState<VCardData>({
+    firstName: '',
+    lastName: '',
+    phone: '',
+    email: '',
+    company: '',
+    title: '',
+    address: '',
+  })
+
+  const [emailData, setEmailData] = useState<EmailData>({
+    to: '',
+    subject: '',
+    body: '',
+  })
+
+  const [smsData, setSmsData] = useState<SMSData>({
+    phone: '',
+    message: '',
+  })
+
+  const [wifiData, setWifiData] = useState<WiFiData>({
+    ssid: '',
+    password: '',
+    encryption: 'WPA',
+  })
+
+  const [socialData, setSocialData] = useState<SocialData>({
+    username: '',
+    message: '',
+  })
+
+  const qrCanvasRef = useRef<HTMLCanvasElement>(null)
+  const qrSvgRef = useRef<SVGSVGElement>(null)
 
   const isSvg = downloadFormat === 'svg'
   const QRComponent = isSvg ? QRCodeSVG : QRCodeCanvas
+
+  // Generate QR code content based on type
+  const generateQRContent = (): string => {
+    switch (qrType) {
+      case 'url':
+        return qrString
+      
+      case 'vcard':
+        const vcard = [
+          'BEGIN:VCARD',
+          'VERSION:3.0',
+          `FN:${vcardData.firstName} ${vcardData.lastName}`,
+          `N:${vcardData.lastName};${vcardData.firstName};;;`,
+          `TEL:${vcardData.phone}`,
+          `EMAIL:${vcardData.email}`,
+          `ORG:${vcardData.company}`,
+          `TITLE:${vcardData.title}`,
+          `ADR:;;${vcardData.address};;;`,
+          'END:VCARD'
+        ].join('\n')
+        return vcard
+      
+      case 'email':
+        const emailUrl = `mailto:${emailData.to}?subject=${encodeURIComponent(emailData.subject)}&body=${encodeURIComponent(emailData.body)}`
+        return emailUrl
+      
+      case 'sms':
+        const smsUrl = `sms:${smsData.phone}?body=${encodeURIComponent(smsData.message)}`
+        return smsUrl
+      
+      case 'wifi':
+        const wifiString = `WIFI:T:${wifiData.encryption};S:${wifiData.ssid};P:${wifiData.password};;`
+        return wifiString
+      
+      case 'facebook':
+        const facebookUrl = `https://www.facebook.com/${socialData.username}`
+        return socialData.message ? `${facebookUrl}?message=${encodeURIComponent(socialData.message)}` : facebookUrl
+      
+      case 'twitter':
+        const twitterUrl = `https://twitter.com/${socialData.username}`
+        return socialData.message ? `${twitterUrl}?text=${encodeURIComponent(socialData.message)}` : twitterUrl
+      
+      default:
+        return qrString
+    }
+  }
 
   const handleUpload = (file: UploadFile) => {
     if (downloadFormat === 'svg') {
@@ -93,13 +214,12 @@ export default function QRCodeGenerator() {
   }
 
   const downloadQr = () => {
-    if (!qrRef.current) return
+    const isSvg = downloadFormat === 'svg'
+    const qrElement = isSvg ? qrSvgRef.current : qrCanvasRef.current
+    if (!qrElement) return
 
     logEvent(analytics, AnalyticsEvents.qr_download_button_click)
-
-    const qrCanvas = qrRef.current
-    const size = qrCanvas.width
-    const isSvg = downloadFormat === 'svg'
+    const size = 300
 
     const triggerDownload = (url: string, format: string) => {
       const a = document.createElement('a')
@@ -110,7 +230,7 @@ export default function QRCodeGenerator() {
 
     if (isSvg && !logoImage) {
       const serializer = new XMLSerializer()
-      const svgString = serializer.serializeToString(qrCanvas)
+      const svgString = serializer.serializeToString(qrElement as SVGSVGElement)
       const blob = new Blob([svgString], { type: 'image/svg+xml' })
       const url = URL.createObjectURL(blob)
       triggerDownload(url, 'svg')
@@ -124,50 +244,252 @@ export default function QRCodeGenerator() {
     const ctx = combinedCanvas.getContext('2d')
     if (!ctx) return
 
-    ctx.drawImage(qrCanvas, 0, 0)
+    const processLogoAndDownload = () => {
+      const drawAndDownload = () => {
+        const dataUrl = combinedCanvas.toDataURL(`image/${isSvg ? 'png' : downloadFormat}`)
+        triggerDownload(dataUrl, isSvg ? 'png' : downloadFormat)
+      }
 
-    const drawAndDownload = () => {
-      const dataUrl = combinedCanvas.toDataURL(`image/${isSvg ? 'png' : downloadFormat}`)
-      triggerDownload(dataUrl, isSvg ? 'png' : downloadFormat)
-    }
+      if (logoImage) {
+        const img = new Image()
+        img.crossOrigin = 'anonymous'
+        img.onload = () => {
+          const logoSize = size * 0.2
+          const x = (size - logoSize) / 2
+          const y = (size - logoSize) / 2
+          const borderRadius = logoSize * 0.15
 
-    if (logoImage) {
-      const img = new Image()
-      img.crossOrigin = 'anonymous'
-      img.onload = () => {
-        const logoSize = size * 0.2
-        const x = (size - logoSize) / 2
-        const y = (size - logoSize) / 2
-        const borderRadius = logoSize * 0.15
+          // Скруглённая белая подложка
+          ctx.fillStyle = 'white'
+          ctx.beginPath()
+          ctx.moveTo(x + borderRadius, y)
+          ctx.lineTo(x + logoSize - borderRadius, y)
+          ctx.quadraticCurveTo(x + logoSize, y, x + logoSize, y + borderRadius)
+          ctx.lineTo(x + logoSize, y + logoSize - borderRadius)
+          ctx.quadraticCurveTo(x + logoSize, y + logoSize, x + logoSize - borderRadius, y + logoSize)
+          ctx.lineTo(x + borderRadius, y + logoSize)
+          ctx.quadraticCurveTo(x, y + logoSize, x, y + logoSize - borderRadius)
+          ctx.lineTo(x, y + borderRadius)
+          ctx.quadraticCurveTo(x, y, x + borderRadius, y)
+          ctx.closePath()
+          ctx.fill()
 
-        // Скруглённая белая подложка
-        ctx.fillStyle = 'white'
-        ctx.beginPath()
-        ctx.moveTo(x + borderRadius, y)
-        ctx.lineTo(x + logoSize - borderRadius, y)
-        ctx.quadraticCurveTo(x + logoSize, y, x + logoSize, y + borderRadius)
-        ctx.lineTo(x + logoSize, y + logoSize - borderRadius)
-        ctx.quadraticCurveTo(x + logoSize, y + logoSize, x + logoSize - borderRadius, y + logoSize)
-        ctx.lineTo(x + borderRadius, y + logoSize)
-        ctx.quadraticCurveTo(x, y + logoSize, x, y + logoSize - borderRadius)
-        ctx.lineTo(x, y + borderRadius)
-        ctx.quadraticCurveTo(x, y, x + borderRadius, y)
-        ctx.closePath()
-        ctx.fill()
+          drawLogoWithCover(ctx, img, x, y, logoSize, borderRadius)
 
-        drawLogoWithCover(ctx, img, x, y, logoSize, borderRadius)
-
+          drawAndDownload()
+        }
+        img.src = logoImage
+      } else {
         drawAndDownload()
       }
-      img.src = logoImage
+    }
+
+    // Convert SVG to canvas if needed
+    if (isSvg) {
+      const svgString = new XMLSerializer().serializeToString(qrElement as SVGSVGElement)
+      const svgBlob = new Blob([svgString], { type: 'image/svg+xml' })
+      const url = URL.createObjectURL(svgBlob)
+      const img = new Image()
+      img.onload = () => {
+        ctx.drawImage(img, 0, 0)
+        processLogoAndDownload()
+      }
+      img.src = url
     } else {
-      drawAndDownload()
+      ctx.drawImage(qrElement as HTMLCanvasElement, 0, 0)
+      processLogoAndDownload()
     }
   }
 
   const handleSelectFormat = (val: DownloadFormats) => {
     logEvent(analytics, AnalyticsEvents.format_select_click, { format: val })
     setDownloadFormat(val)
+  }
+
+  const handleQRTypeChange = (type: QRCodeType) => {
+    setQrType(type)
+    logEvent(analytics, AnalyticsEvents.qr_type_change, { type })
+  }
+
+  const renderFormFields = () => {
+    switch (qrType) {
+      case 'url':
+        return (
+          <div>
+            <Typography.Title level={5}>URL</Typography.Title>
+            <Input
+              type="text"
+              size="large"
+              value={qrString}
+              onChange={(e) => setQrString(e.target.value)}
+              placeholder="Enter URL"
+              prefix={<LinkOutlined />}
+            />
+          </div>
+        )
+
+      case 'vcard':
+        return (
+          <div className="space-y-4">
+            <Typography.Title level={5}>Contact Information</Typography.Title>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <Input
+                placeholder="First Name"
+                value={vcardData.firstName}
+                onChange={(e) => setVcardData({ ...vcardData, firstName: e.target.value })}
+                prefix={<UserOutlined />}
+              />
+              <Input
+                placeholder="Last Name"
+                value={vcardData.lastName}
+                onChange={(e) => setVcardData({ ...vcardData, lastName: e.target.value })}
+                prefix={<UserOutlined />}
+              />
+              <Input
+                placeholder="Phone"
+                value={vcardData.phone}
+                onChange={(e) => setVcardData({ ...vcardData, phone: e.target.value })}
+                prefix={<MessageOutlined />}
+              />
+              <Input
+                placeholder="Email"
+                value={vcardData.email}
+                onChange={(e) => setVcardData({ ...vcardData, email: e.target.value })}
+                prefix={<MailOutlined />}
+              />
+              <Input
+                placeholder="Company"
+                value={vcardData.company}
+                onChange={(e) => setVcardData({ ...vcardData, company: e.target.value })}
+              />
+              <Input
+                placeholder="Title"
+                value={vcardData.title}
+                onChange={(e) => setVcardData({ ...vcardData, title: e.target.value })}
+              />
+            </div>
+            <Input
+              placeholder="Address"
+              value={vcardData.address}
+              onChange={(e) => setVcardData({ ...vcardData, address: e.target.value })}
+            />
+          </div>
+        )
+
+      case 'email':
+        return (
+          <div className="space-y-4">
+            <Typography.Title level={5}>Email</Typography.Title>
+            <Input
+              placeholder="To"
+              value={emailData.to}
+              onChange={(e) => setEmailData({ ...emailData, to: e.target.value })}
+              prefix={<MailOutlined />}
+            />
+            <div className="mb-4">
+
+            <Input
+              placeholder="Subject"
+              value={emailData.subject}
+              onChange={(e) => setEmailData({ ...emailData, subject: e.target.value })}
+            />
+            </div>
+            <Input.TextArea
+              placeholder="Message"
+              value={emailData.body}
+              onChange={(e) => setEmailData({ ...emailData, body: e.target.value })}
+              rows={3}
+            />
+          </div>
+        )
+
+      case 'sms':
+        return (
+          <div className="space-y-4">
+            <Typography.Title level={5}>SMS</Typography.Title>
+            <Input
+              placeholder="Phone Number"
+              value={smsData.phone}
+              onChange={(e) => setSmsData({ ...smsData, phone: e.target.value })}
+              prefix={<MessageOutlined />}
+            />
+            <Input.TextArea
+              placeholder="Message"
+              value={smsData.message}
+              onChange={(e) => setSmsData({ ...smsData, message: e.target.value })}
+              rows={3}
+            />
+          </div>
+        )
+
+      case 'wifi':
+        return (
+          <div className="space-y-4">
+            <Typography.Title level={5}>WiFi Network</Typography.Title>
+            <Input
+              placeholder="Network Name (SSID)"
+              value={wifiData.ssid}
+              onChange={(e) => setWifiData({ ...wifiData, ssid: e.target.value })}
+              prefix={<WifiOutlined />}
+            />
+            <Input.Password
+              placeholder="Password"
+              value={wifiData.password}
+              onChange={(e) => setWifiData({ ...wifiData, password: e.target.value })}
+            />
+            <Select
+              value={wifiData.encryption}
+              onChange={(value) => setWifiData({ ...wifiData, encryption: value })}
+              className="w-full"
+            >
+              <Select.Option value="WPA">WPA/WPA2/WPA3</Select.Option>
+              <Select.Option value="WEP">WEP</Select.Option>
+              <Select.Option value="nopass">No Password</Select.Option>
+            </Select>
+          </div>
+        )
+
+      case 'facebook':
+        return (
+          <div className="space-y-4">
+            <Typography.Title level={5}>Facebook</Typography.Title>
+            <Input
+              placeholder="Username or Page ID"
+              value={socialData.username}
+              onChange={(e) => setSocialData({ ...socialData, username: e.target.value })}
+              prefix={<FacebookOutlined />}
+            />
+            <Input.TextArea
+              placeholder="Message (optional)"
+              value={socialData.message}
+              onChange={(e) => setSocialData({ ...socialData, message: e.target.value })}
+              rows={2}
+            />
+          </div>
+        )
+
+      case 'twitter':
+        return (
+          <div className="space-y-4">
+            <Typography.Title level={5}>Twitter</Typography.Title>
+            <Input
+              placeholder="Username"
+              value={socialData.username}
+              onChange={(e) => setSocialData({ ...socialData, username: e.target.value })}
+              prefix={<TwitterOutlined />}
+            />
+            <Input.TextArea
+              placeholder="Tweet text (optional)"
+              value={socialData.message}
+              onChange={(e) => setSocialData({ ...socialData, message: e.target.value })}
+              rows={2}
+            />
+          </div>
+        )
+
+      default:
+        return null
+    }
   }
 
   return (
@@ -181,15 +503,59 @@ export default function QRCodeGenerator() {
           {/* Left Panel */}
           <div className="md:w-1/2 flex flex-col gap-6 md:mt-12">
             <div>
-              <Typography.Title level={5}>QR Text / URL</Typography.Title>
-              <Input
-                type="text"
+              <Typography.Title level={5}>QR Code Type</Typography.Title>
+              <Select 
+                className="w-full" 
+                value={qrType} 
+                onChange={handleQRTypeChange}
                 size="large"
-                value={qrString}
-                onChange={(e) => setQrString(e.target.value)}
-                placeholder="Enter URL or text"
-              />
+              >
+                <Select.Option value="url">
+                  <Space>
+                    <LinkOutlined />
+                    URL
+                  </Space>
+                </Select.Option>
+                <Select.Option value="vcard">
+                  <Space>
+                    <UserOutlined />
+                    Contact (vCard)
+                  </Space>
+                </Select.Option>
+                <Select.Option value="email">
+                  <Space>
+                    <MailOutlined />
+                    Email
+                  </Space>
+                </Select.Option>
+                <Select.Option value="sms">
+                  <Space>
+                    <MessageOutlined />
+                    SMS
+                  </Space>
+                </Select.Option>
+                <Select.Option value="wifi">
+                  <Space>
+                    <WifiOutlined />
+                    WiFi
+                  </Space>
+                </Select.Option>
+                <Select.Option value="facebook">
+                  <Space>
+                    <FacebookOutlined />
+                    Facebook
+                  </Space>
+                </Select.Option>
+                <Select.Option value="twitter">
+                  <Space>
+                    <TwitterOutlined />
+                    Twitter
+                  </Space>
+                </Select.Option>
+              </Select>
             </div>
+
+            {renderFormFields()}
 
             <div className="flex md:flex-row gap-6">
               <div onClick={() => logEvent(analytics, AnalyticsEvents.foreground_color_click)}>
@@ -258,15 +624,27 @@ export default function QRCodeGenerator() {
           {/* Right Panel */}
           <div className="w-full md:w-1/2 flex flex-col items-center gap-6">
             <div className="bg-white p-4 rounded-2xl shadow-xl border relative">
-              <QRComponent
-                value={qrString}
-                size={300}
-                bgColor={lightColor}
-                fgColor={darkColor}
-                level="H"
-                ref={qrRef}
-                className="rounded-lg"
-              />
+              {isSvg ? (
+                <QRCodeSVG
+                  value={generateQRContent()}
+                  size={300}
+                  bgColor={lightColor}
+                  fgColor={darkColor}
+                  level="H"
+                  ref={qrSvgRef}
+                  className="rounded-lg"
+                />
+              ) : (
+                <QRCodeCanvas
+                  value={generateQRContent()}
+                  size={300}
+                  bgColor={lightColor}
+                  fgColor={darkColor}
+                  level="H"
+                  ref={qrCanvasRef}
+                  className="rounded-lg"
+                />
+              )}
 
               {logoImage && (
                 <img

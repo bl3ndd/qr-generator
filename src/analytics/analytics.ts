@@ -25,6 +25,7 @@ const AnalyticsEvents = {
   donate_link_click: 'donate_link_click',
   donate_address_copy_button_click: 'donate_address_copy_button_click',
   delete_logo_button_click: 'delete_logo_button_click',
+  qr_type_change: 'qr_type_change',
 }
 
 // Инициализация Firebase
