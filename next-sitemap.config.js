@@ -2,6 +2,7 @@ const basePaths = [
   '', // главная страница — `/[locale]`
   '/blog/how-to-create-qr-code-online',
   '/blog/qrafty-new-functionality',
+  '/blog/qr-code-types-update',
   '/donate',
 ]
 
