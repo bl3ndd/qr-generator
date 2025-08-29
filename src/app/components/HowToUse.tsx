@@ -1,6 +1,6 @@
 export function HowToUse() {
   return (
-    <section className="max-w-5xl mx-auto px-4 py-16">
+    <section className="max-w-2xl mx-auto px-4 py-16">
       <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
         Create Your Free Custom QR Code with Qrafty in 3 Easy Steps
       </h2>
