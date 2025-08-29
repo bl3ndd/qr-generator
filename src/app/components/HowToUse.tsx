@@ -12,10 +12,10 @@ export function HowToUse() {
       <div className="relative space-y-16">
         <div className="flex flex-col-reverse md:flex-row items-start md:items-center gap-6">
           <div className="flex-1">
-            <h3 className="text-xl font-semibold mb-2">Step 1: Enter Your Text or URL</h3>
+            <h3 className="text-xl font-semibold mb-2">Step 1: Choose QR Code Type & Enter Data</h3>
             <p className="text-gray-700">
-              Simply type in any text or website URL you want to link to. Our QR code generator
-              supports all kinds of content!
+              Select from 7 different QR code types: URL, Contact (vCard), Email, SMS, WiFi, Facebook, or Twitter. 
+              Then fill in the specific information for your chosen type. Our QR code generator supports all your needs!
             </p>
           </div>
         </div>
