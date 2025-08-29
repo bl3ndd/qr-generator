@@ -69,6 +69,7 @@ interface CryptoData {
   amount?: string
   label?: string
   message?: string
+  format: 'bip21' | 'simple'
 }
 
 export default function QRCodeGenerator() {
@@ -118,6 +119,7 @@ export default function QRCodeGenerator() {
     amount: '',
     label: '',
     message: '',
+    format: 'bip21',
   })
 
   const qrCanvasRef = useRef<HTMLCanvasElement>(null)
@@ -128,9 +130,11 @@ export default function QRCodeGenerator() {
 
   // Generate QR code content based on type
   const generateQRContent = (): string => {
+    let result = ''
     switch (qrType) {
       case 'url':
-        return qrString
+        result = qrString
+        break
       
       case 'vcard':
         const vcard = [
@@ -145,40 +149,98 @@ export default function QRCodeGenerator() {
           `ADR:;;${vcardData.address};;;`,
           'END:VCARD'
         ].join('\n')
-        return vcard
+        result = vcard
+        break
       
       case 'email':
         const emailUrl = `mailto:${emailData.to}?subject=${encodeURIComponent(emailData.subject)}&body=${encodeURIComponent(emailData.body)}`
-        return emailUrl
+        result = emailUrl
+        break
       
       case 'sms':
         const smsUrl = `sms:${smsData.phone}?body=${encodeURIComponent(smsData.message)}`
-        return smsUrl
+        result = smsUrl
+        break
       
       case 'wifi':
         const wifiString = `WIFI:T:${wifiData.encryption};S:${wifiData.ssid};P:${wifiData.password};;`
-        return wifiString
+        result = wifiString
+        break
       
       case 'facebook':
         const facebookUrl = `https://www.facebook.com/${socialData.username}`
-        return socialData.message ? `${facebookUrl}?message=${encodeURIComponent(socialData.message)}` : facebookUrl
+        result = socialData.message ? `${facebookUrl}?message=${encodeURIComponent(socialData.message)}` : facebookUrl
+        break
       
       case 'twitter':
         const twitterUrl = `https://twitter.com/${socialData.username}`
-        return socialData.message ? `${twitterUrl}?text=${encodeURIComponent(socialData.message)}` : twitterUrl
+        result = socialData.message ? `${twitterUrl}?text=${encodeURIComponent(socialData.message)}` : twitterUrl
+        break
       
       case 'crypto':
+        // Handle different cryptocurrency formats for Trust Wallet compatibility
+        if (!cryptoData.address.trim()) {
+          result = 'Please enter a wallet address'
+          break
+        }
+        
+        // Build parameters for BIP-21 format
         const cryptoParams = new URLSearchParams()
         if (cryptoData.amount) cryptoParams.append('amount', cryptoData.amount)
         if (cryptoData.label) cryptoParams.append('label', cryptoData.label)
         if (cryptoData.message) cryptoParams.append('message', cryptoData.message)
-        
         const params = cryptoParams.toString()
-        return `${cryptoData.currency}:${cryptoData.address}${params ? '?' + params : ''}`
+        
+        // Try different approaches for Trust Wallet compatibility
+        if (cryptoData.format === 'simple') {
+          // Simple format - just the address (most compatible with Trust Wallet)
+          result = cryptoData.address.trim()
+        } else {
+          // Try BIP-21 format but with fallback for Trust Wallet
+          if (cryptoData.currency === 'usdt') {
+            // For USDT, try different approaches
+            if (cryptoData.address.startsWith('T')) {
+              // TRC20 USDT - try tron: prefix first
+              result = `tron:${cryptoData.address.trim()}${params ? '?' + params : ''}`
+            } else {
+              // ERC20 USDT - try ethereum: prefix
+              result = `ethereum:${cryptoData.address.trim()}${params ? '?' + params : ''}`
+            }
+          } else if (cryptoData.currency === 'bitcoin') {
+            // Bitcoin BIP-21 format
+            result = `bitcoin:${cryptoData.address.trim()}${params ? '?' + params : ''}`
+          } else if (cryptoData.currency === 'ethereum') {
+            // Ethereum format
+            result = `ethereum:${cryptoData.address.trim()}${params ? '?' + params : ''}`
+          } else if (cryptoData.currency === 'litecoin') {
+            // Litecoin format
+            result = `litecoin:${cryptoData.address.trim()}${params ? '?' + params : ''}`
+          } else if (cryptoData.currency === 'dogecoin') {
+            // Dogecoin format
+            result = `dogecoin:${cryptoData.address.trim()}${params ? '?' + params : ''}`
+          } else {
+            // For other cryptocurrencies, just use the address
+            result = cryptoData.address.trim()
+          }
+        }
+        break
       
       default:
-        return qrString
+        result = qrString
+        break
     }
+    
+    // Debug log for crypto
+    if (qrType === 'crypto') {
+      console.log('Generated crypto QR content:', result)
+      console.log('Crypto data:', cryptoData)
+      console.log('QR type:', qrType)
+      console.log('Currency:', cryptoData.currency)
+      console.log('Format:', cryptoData.format)
+      console.log('Address starts with T:', cryptoData.address.startsWith('T'))
+    }
+    
+    return result
   }
 
   const handleUpload = (file: UploadFile) => {
@@ -516,13 +578,14 @@ export default function QRCodeGenerator() {
       case 'crypto':
         return (
           <div className="space-y-4">
-            <Typography.Title level={5}>Cryptocurrency Payment</Typography.Title>
-                          <Select
-                value={cryptoData.currency}
-                onChange={(value) => setCryptoData({ ...cryptoData, currency: value })}
-                className="w-full"
-                size="large"
-              >
+              <Typography.Title level={5}>Cryptocurrency Payment</Typography.Title>
+              <div className="grid grid-cols-1 gap-4">
+                <Select
+                  value={cryptoData.currency}
+                  onChange={(value) => setCryptoData({ ...cryptoData, currency: value })}
+                  className="w-full"
+                  size="large"
+                >
                 <Select.Option value="usdt">Tether (USDT)</Select.Option>
                 <Select.Option value="bitcoin">Bitcoin (BTC)</Select.Option>
                 <Select.Option value="ethereum">Ethereum (ETH)</Select.Option>
@@ -532,37 +595,59 @@ export default function QRCodeGenerator() {
                 <Select.Option value="cardano">Cardano (ADA)</Select.Option>
                 <Select.Option value="polkadot">Polkadot (DOT)</Select.Option>
                 <Select.Option value="binance">Binance Coin (BNB)</Select.Option>
-            </Select>
-            <div className='mt-4'>
+              </Select>
+              
+              {/* <Select
+                value={cryptoData.format}
+                onChange={(value) => setCryptoData({ ...cryptoData, format: value })}
+                className="w-full"
+                size="large"
+              >
+                <Select.Option value="simple">Simple Address Only (Trust Wallet)</Select.Option>
+                <Select.Option value="bip21">BIP-21 Format (Other Wallets)</Select.Option>
+              </Select> */}
+              </div>
+              <div className='mt-4'>
               <Input
                 placeholder="Wallet Address"
                 value={cryptoData.address}
                 onChange={(e) => setCryptoData({ ...cryptoData, address: e.target.value })}
                 prefix={<DollarCircleOutlined />}
               />
+              <div className="text-xs text-gray-500 mt-1">
+                {cryptoData.currency === 'usdt' && 'Enter USDT address (TRC20 starts with T, ERC20 starts with 0x) - Uses tron:/ethereum: prefix'}
+                {cryptoData.currency === 'bitcoin' && 'Enter Bitcoin address (starts with 1, 3, or bc1) - Uses bitcoin: prefix'}
+                {cryptoData.currency === 'ethereum' && 'Enter Ethereum address (starts with 0x) - Uses ethereum: prefix'}
+                {cryptoData.currency === 'litecoin' && 'Enter Litecoin address (starts with L) - Uses litecoin: prefix'}
+                {cryptoData.currency === 'dogecoin' && 'Enter Dogecoin address (starts with D) - Uses dogecoin: prefix'}
+                {!['usdt', 'bitcoin', 'ethereum', 'litecoin', 'dogecoin'].includes(cryptoData.currency) && 'Enter wallet address'}
+              </div>
             </div>
             
-            <div className='mt-4'>
-            <Input
-              placeholder="Amount (optional)"
-              value={cryptoData.amount}
-              onChange={(e) => setCryptoData({ ...cryptoData, amount: e.target.value })}
-            />
+                        <div className='mt-4'>
+              <Input
+                placeholder="Amount (optional)"
+                value={cryptoData.amount}
+                onChange={(e) => setCryptoData({ ...cryptoData, amount: e.target.value })}
+              />
+              <div className="text-xs text-gray-500 mt-1">
+                Note: Amount, label, and message are included in QR code for better compatibility
+              </div>
             </div>
             <div className='mt-4'>
-            <Input
-              placeholder="Label (optional)"
-              value={cryptoData.label}
-              onChange={(e) => setCryptoData({ ...cryptoData, label: e.target.value })}
-            />
+              <Input
+                placeholder="Label (optional)"
+                value={cryptoData.label}
+                onChange={(e) => setCryptoData({ ...cryptoData, label: e.target.value })}
+              />
             </div>
             <div className='mt-4'>
-            <Input.TextArea
-              placeholder="Message (optional)"
-              value={cryptoData.message}
-              onChange={(e) => setCryptoData({ ...cryptoData, message: e.target.value })}
-              rows={2}
-            />
+              <Input.TextArea
+                placeholder="Message (optional)"
+                value={cryptoData.message}
+                onChange={(e) => setCryptoData({ ...cryptoData, message: e.target.value })}
+                rows={2}
+              />
             </div>
           </div>
         )

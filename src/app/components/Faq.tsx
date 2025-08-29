@@ -26,7 +26,7 @@ export function Faq() {
   ]
 
   return (
-    <section className="max-w-5xl mx-auto px-10 py-16">
+    <section className="max-w-2xl mx-auto px-10 py-16">
       <h2 className="text-3xl md:text-4xl font-bold text-center mb-8">
         Frequently Asked Questions
       </h2>
