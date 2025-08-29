@@ -22,13 +22,14 @@ import {
   WifiOutlined,
   FacebookOutlined,
   TwitterOutlined,
+  DollarCircleOutlined,
 } from '@ant-design/icons'
 
 import LanguageSwitcher from '@/app/components/LanguageSwitcher'
 import Link from 'next/link'
 
 type DownloadFormats = 'webp' | 'svg' | 'jpeg' | 'png'
-type QRCodeType = 'url' | 'vcard' | 'email' | 'sms' | 'wifi' | 'facebook' | 'twitter'
+type QRCodeType = 'url' | 'vcard' | 'email' | 'sms' | 'wifi' | 'facebook' | 'twitter' | 'crypto'
 
 interface VCardData {
   firstName: string
@@ -59,6 +60,14 @@ interface WiFiData {
 
 interface SocialData {
   username: string
+  message?: string
+}
+
+interface CryptoData {
+  currency: 'bitcoin' | 'ethereum' | 'litecoin' | 'dogecoin' | 'ripple' | 'cardano' | 'polkadot' | 'binance' | 'usdt'
+  address: string
+  amount?: string
+  label?: string
   message?: string
 }
 
@@ -100,6 +109,14 @@ export default function QRCodeGenerator() {
 
   const [socialData, setSocialData] = useState<SocialData>({
     username: '',
+    message: '',
+  })
+
+  const [cryptoData, setCryptoData] = useState<CryptoData>({
+    currency: 'usdt',
+    address: '',
+    amount: '',
+    label: '',
     message: '',
   })
 
@@ -149,6 +166,15 @@ export default function QRCodeGenerator() {
       case 'twitter':
         const twitterUrl = `https://twitter.com/${socialData.username}`
         return socialData.message ? `${twitterUrl}?text=${encodeURIComponent(socialData.message)}` : twitterUrl
+      
+      case 'crypto':
+        const cryptoParams = new URLSearchParams()
+        if (cryptoData.amount) cryptoParams.append('amount', cryptoData.amount)
+        if (cryptoData.label) cryptoParams.append('label', cryptoData.label)
+        if (cryptoData.message) cryptoParams.append('message', cryptoData.message)
+        
+        const params = cryptoParams.toString()
+        return `${cryptoData.currency}:${cryptoData.address}${params ? '?' + params : ''}`
       
       default:
         return qrString
@@ -487,6 +513,60 @@ export default function QRCodeGenerator() {
           </div>
         )
 
+      case 'crypto':
+        return (
+          <div className="space-y-4">
+            <Typography.Title level={5}>Cryptocurrency Payment</Typography.Title>
+                          <Select
+                value={cryptoData.currency}
+                onChange={(value) => setCryptoData({ ...cryptoData, currency: value })}
+                className="w-full"
+                size="large"
+              >
+                <Select.Option value="usdt">Tether (USDT)</Select.Option>
+                <Select.Option value="bitcoin">Bitcoin (BTC)</Select.Option>
+                <Select.Option value="ethereum">Ethereum (ETH)</Select.Option>
+                <Select.Option value="litecoin">Litecoin (LTC)</Select.Option>
+                <Select.Option value="dogecoin">Dogecoin (DOGE)</Select.Option>
+                <Select.Option value="ripple">Ripple (XRP)</Select.Option>
+                <Select.Option value="cardano">Cardano (ADA)</Select.Option>
+                <Select.Option value="polkadot">Polkadot (DOT)</Select.Option>
+                <Select.Option value="binance">Binance Coin (BNB)</Select.Option>
+            </Select>
+            <div className='mt-4'>
+              <Input
+                placeholder="Wallet Address"
+                value={cryptoData.address}
+                onChange={(e) => setCryptoData({ ...cryptoData, address: e.target.value })}
+                prefix={<DollarCircleOutlined />}
+              />
+            </div>
+            
+            <div className='mt-4'>
+            <Input
+              placeholder="Amount (optional)"
+              value={cryptoData.amount}
+              onChange={(e) => setCryptoData({ ...cryptoData, amount: e.target.value })}
+            />
+            </div>
+            <div className='mt-4'>
+            <Input
+              placeholder="Label (optional)"
+              value={cryptoData.label}
+              onChange={(e) => setCryptoData({ ...cryptoData, label: e.target.value })}
+            />
+            </div>
+            <div className='mt-4'>
+            <Input.TextArea
+              placeholder="Message (optional)"
+              value={cryptoData.message}
+              onChange={(e) => setCryptoData({ ...cryptoData, message: e.target.value })}
+              rows={2}
+            />
+            </div>
+          </div>
+        )
+
       default:
         return null
     }
@@ -501,7 +581,7 @@ export default function QRCodeGenerator() {
 
         <div className="max-w-6xl bg-white shadow-2xl rounded-3xl p-4 sm:p-8 flex flex-col md:flex-row gap-10 mb-4">
           {/* Left Panel */}
-          <div className="md:w-1/2 flex flex-col gap-6 md:mt-12">
+          <div className="md:w-1/2 flex flex-col gap-6">
             <div>
               <Typography.Title level={5}>QR Code Type</Typography.Title>
               <Select 
@@ -514,6 +594,12 @@ export default function QRCodeGenerator() {
                   <Space>
                     <LinkOutlined />
                     URL
+                  </Space>
+                </Select.Option>
+                <Select.Option value="crypto">
+                  <Space>
+                    <DollarCircleOutlined />
+                    Cryptocurrency
                   </Space>
                 </Select.Option>
                 <Select.Option value="vcard">
