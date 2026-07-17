@@ -1,7 +1,5 @@
 import Link from 'next/link'
 import { getAllPosts } from '../../lib/articles'
-import { Button } from 'antd'
-import { ArrowLeftOutlined } from '@ant-design/icons'
 import { Metadata } from 'next'
 import { appName } from '../../../config'
 
@@ -68,8 +66,15 @@ export default async function BlogPage({ params }: BlogPageProps) {
 
   return (
     <main className="max-w-3xl mx-auto p-6 bg-white rounded-lg shadow-md mt-10">
-      <Link href={`/`}>
-        <Button icon={<ArrowLeftOutlined />}></Button>
+      <Link
+        href="/"
+        aria-label="Back home"
+        className="inline-flex items-center justify-center w-9 h-9 rounded-md border border-gray-300 text-gray-600 hover:bg-gray-50 transition"
+      >
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M19 12H5" />
+          <path d="m12 19-7-7 7-7" />
+        </svg>
       </Link>
 
       <h1 className="text-3xl font-bold mt-4 mb-8">Blog</h1>
