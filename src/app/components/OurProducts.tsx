@@ -7,18 +7,19 @@ export function OurProducts() {
           We create easy-to-use, free online tools designed to make your life and business easier.
         </p>
         <p>
-          One of our popular tools is{' '}
+          One of our popular projects is{' '}
           <a
             href="https://cutbg.org"
             target="_blank"
             rel="noopener noreferrer"
             className="text-blue-600 hover:underline"
           >
-            CutBG
+            cutbg
           </a>{' '}
-          — a fast and simple background removal service for images.
+          — a free hub of in-browser image tools: remove backgrounds, compress, convert HEIC,
+          resize, crop, remove metadata and more. Everything runs on your device, nothing gets uploaded.
         </p>
-        <p>Try it out and see how quickly you can get professional results!</p>
+        <p>Try it out and see how quickly you can get professional results — no sign-up, no watermark.</p>
       </div>
     </section>
   )
