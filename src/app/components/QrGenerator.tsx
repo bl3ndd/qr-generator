@@ -16,6 +16,7 @@ import {
   DollarOutlined,
   PaperClipOutlined,
   LinkOutlined,
+  FileTextOutlined,
   UserOutlined,
   MailOutlined,
   MessageOutlined,
@@ -29,7 +30,7 @@ import LanguageSwitcher from '@/app/components/LanguageSwitcher'
 import Link from 'next/link'
 
 type DownloadFormats = 'webp' | 'svg' | 'jpeg' | 'png'
-type QRCodeType = 'url' | 'vcard' | 'email' | 'sms' | 'wifi' | 'facebook' | 'twitter' | 'crypto'
+type QRCodeType = 'url' | 'text' | 'vcard' | 'email' | 'sms' | 'wifi' | 'facebook' | 'twitter' | 'crypto'
 
 interface VCardData {
   firstName: string
@@ -72,9 +73,17 @@ interface CryptoData {
   format: 'bip21' | 'simple'
 }
 
-export default function QRCodeGenerator() {
-  const [qrType, setQrType] = useState<QRCodeType>('url')
-  const [qrString, setQrString] = useState('https://qrafty.cutbg.org/')
+// initialType задают посадочные страницы типов (/wifi-qr-code-generator и т.п.),
+// чтобы человек попадал сразу на нужную форму, а не искал её в селекте.
+// heading — там же: h1 на странице должен быть один и описывать именно её,
+// а не повторять общий заголовок главной на всех восьми.
+export default function QRCodeGenerator({
+  initialType = 'url',
+  heading = 'Qrafty - generate QR code in 5 seconds',
+}: { initialType?: QRCodeType; heading?: string } = {}) {
+  const [qrType, setQrType] = useState<QRCodeType>(initialType)
+  // Дефолтная ссылка осмысленна только для url — на странице текста она бы мешала.
+  const [qrString, setQrString] = useState(initialType === 'text' ? '' : 'https://qrafty.cutbg.org/')
   const [darkColor, setDarkColor] = useState('#000000')
   const [lightColor, setLightColor] = useState('#FFFFFF')
   const [downloadFormat, setDownloadFormat] = useState<DownloadFormats>('svg')
@@ -128,14 +137,25 @@ export default function QRCodeGenerator() {
   const isSvg = downloadFormat === 'svg'
   const QRComponent = isSvg ? QRCodeSVG : QRCodeCanvas
 
+  // Уровень коррекции по ситуации, а не всегда 'H'.
+  // Логотип перекрывает центр кода — там запас в 30% действительно нужен.
+  // Без логотипа он только уплотняет сетку: 93 символа JSON при 'H' требуют
+  // ~57 модулей в ряду, а при 'M' укладываются в ~41. На печати и при съёмке
+  // с расстояния это разница между «читается» и «не читается».
+  const qrLevel: 'M' | 'H' = logoImage ? 'H' : 'M'
+
   // Generate QR code content based on type
   const generateQRContent = (): string => {
     let result = ''
     switch (qrType) {
       case 'url':
+      // Произвольный текст кодируется как есть — ровно то же, что делает 'url'.
+      // Отдельный тип нужен не коду, а человеку: раньше поле называлось только
+      // «URL», и те, кому надо было закодировать текст, решали, что такой опции нет.
+      case 'text':
         result = qrString
         break
-      
+
       case 'vcard':
         const vcard = [
           'BEGIN:VCARD',
@@ -416,6 +436,23 @@ export default function QRCodeGenerator() {
           </div>
         )
 
+      case 'text':
+        return (
+          <div>
+            <Typography.Title level={5}>Text</Typography.Title>
+            <Input.TextArea
+              size="large"
+              rows={4}
+              value={qrString}
+              onChange={(e) => setQrString(e.target.value)}
+              placeholder="Any text — a note, a serial number, a config string…"
+            />
+            <Typography.Text type="secondary" className="text-xs">
+              Encoded exactly as typed. Longer text makes a denser code, so print it larger.
+            </Typography.Text>
+          </div>
+        )
+
       case 'vcard':
         return (
           <div className="space-y-4">
@@ -661,7 +698,7 @@ export default function QRCodeGenerator() {
     <div className="flex flex-col items-center justify-start bg-gradient-to-br from-indigo-100 via-white to-pink-100 px-4 md:py-10 py-4">
       <div className="max-w-[800px]">
         <h1 className="text-2xl md:text-5xl font-bold text-center text-gray-800 md:mb-8 mb-4">
-          Qrafty - generate QR code in 5 seconds
+          {heading}
         </h1>
 
         <div className="max-w-6xl bg-white shadow-2xl rounded-3xl p-4 sm:p-8 flex flex-col md:flex-row gap-10 mb-4">
@@ -679,6 +716,12 @@ export default function QRCodeGenerator() {
                   <Space>
                     <LinkOutlined />
                     URL
+                  </Space>
+                </Select.Option>
+                <Select.Option value="text">
+                  <Space>
+                    <FileTextOutlined />
+                    Plain text
                   </Space>
                 </Select.Option>
                 <Select.Option value="crypto">
@@ -801,7 +844,7 @@ export default function QRCodeGenerator() {
                   size={300}
                   bgColor={lightColor}
                   fgColor={darkColor}
-                  level="H"
+                  level={qrLevel}
                   ref={qrSvgRef}
                   className="rounded-lg"
                 />
@@ -811,7 +854,7 @@ export default function QRCodeGenerator() {
                   size={300}
                   bgColor={lightColor}
                   fgColor={darkColor}
-                  level="H"
+                  level={qrLevel}
                   ref={qrCanvasRef}
                   className="rounded-lg"
                 />
