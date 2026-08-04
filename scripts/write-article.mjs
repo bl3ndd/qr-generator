@@ -173,6 +173,10 @@ const meta = {
   description: clean(a.description),
   date: new Date().toISOString().slice(0, 10),
   author: 'QRAFTY Team',
+  // Запрос, под который писалась статья. Без него через месяц не проверить,
+  // попала ли она в цель — а это единственный способ понять, работает ли
+  // вообще выбор темы по спросу.
+  keyword: clean(a.keyword || ''),
   tags: Array.isArray(a.tags) ? a.tags.map(clean) : [],
 }
 
