@@ -14,7 +14,12 @@ import matter from 'gray-matter'
 
 const DIR = 'src/content/en'
 const MODEL = 'claude-opus-5'
-const SITE = process.env.GSC_SITE_URL || 'https://qrafty.cutbg.org/'
+// В Search Console заведены оба типа ресурса, и в API у них разные идентификаторы.
+// Домен-ресурс полнее (ловит любой протокол и поддомены), поэтому пробуем его первым,
+// а если доступа к нему у service account нет — берём префиксный.
+const SITES = process.env.GSC_SITE_URL
+  ? [process.env.GSC_SITE_URL]
+  : ['sc-domain:qrafty.cutbg.org', 'https://qrafty.cutbg.org/']
 
 // Куда вести читателя. Реальные страницы — сверяется перед записью.
 const PAGES = [
@@ -64,22 +69,30 @@ async function fetchQueries() {
   const start = new Date(end.getTime() - 90 * 864e5)
   const iso = (d) => d.toISOString().slice(0, 10)
 
-  const res = await fetch(
-    `https://www.googleapis.com/webmasters/v3/sites/${encodeURIComponent(SITE)}/searchAnalytics/query`,
-    {
-      method: 'POST',
-      headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        startDate: iso(start),
-        endDate: iso(end),
-        dimensions: ['query'],
-        rowLimit: 200,
-      }),
-    },
-  )
-  if (!res.ok) throw new Error(`GSC ${res.status}: ${(await res.text()).slice(0, 200)}`)
-
-  const rows = (await res.json()).rows || []
+  let rows = null
+  const problems = []
+  for (const site of SITES) {
+    const res = await fetch(
+      `https://www.googleapis.com/webmasters/v3/sites/${encodeURIComponent(site)}/searchAnalytics/query`,
+      {
+        method: 'POST',
+        headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          startDate: iso(start),
+          endDate: iso(end),
+          dimensions: ['query'],
+          rowLimit: 200,
+        }),
+      },
+    )
+    if (res.ok) {
+      rows = (await res.json()).rows || []
+      console.log(`GSC: ресурс ${site}`)
+      break
+    }
+    problems.push(`${site} → ${res.status}`)
+  }
+  if (!rows) throw new Error(problems.join(', '))
   // Брендовые запросы отбрасываем: под них статья не нужна, человек и так пришёл.
   return rows
     .filter((r) => !/qrafty|cutbg/i.test(r.keys[0]))
