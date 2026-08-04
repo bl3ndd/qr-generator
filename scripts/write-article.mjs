@@ -36,6 +36,27 @@ const PAGES = [
 
 const clean = (s) => String(s).replace(/"/g, "'").trim()
 
+// Просить модель упаковать markdown в JSON-строку — ненадёжно: в теле статьи
+// переносы, кавычки и обратные слэши, и модель периодически ошибается в
+// экранировании. На cutbg это уже стоило целого прогона. Со схемой валидность
+// гарантирует API, а не удача.
+const OUTPUT_FORMAT = {
+  type: 'json_schema',
+  schema: {
+    type: 'object',
+    properties: {
+      slug: { type: 'string' },
+      title: { type: 'string' },
+      description: { type: 'string' },
+      keyword: { type: 'string' },
+      tags: { type: 'array', items: { type: 'string' } },
+      body: { type: 'string' },
+    },
+    required: ['slug', 'title', 'description', 'keyword', 'tags', 'body'],
+    additionalProperties: false,
+  },
+}
+
 // ── 1. Что уже написано ─────────────────────────────────────────────────────
 let existing = []
 try {
@@ -146,7 +167,13 @@ Respond with ONLY a JSON object, no markdown fences and no commentary:
 // ── 4. Генерация и запись ───────────────────────────────────────────────────
 const client = new Anthropic() // читает ANTHROPIC_API_KEY из env
 const msg = await client.messages
-  .stream({ model: MODEL, max_tokens: 8000, thinking: { type: 'adaptive' }, messages: [{ role: 'user', content: prompt }] })
+  .stream({
+    model: MODEL,
+    max_tokens: 8000,
+    thinking: { type: 'adaptive' },
+    output_config: { format: OUTPUT_FORMAT },
+    messages: [{ role: 'user', content: prompt }],
+  })
   .finalMessage()
 
 const text = msg.content.filter((b) => b.type === 'text').map((b) => b.text).join('').trim().replace(/^```json\s*|\s*```$/g, '')
