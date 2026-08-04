@@ -28,6 +28,8 @@ import {
 
 import LanguageSwitcher from '@/app/components/LanguageSwitcher'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
+import { qrTools } from '@/lib/qrTypes'
 
 type DownloadFormats = 'webp' | 'svg' | 'jpeg' | 'png'
 type QRCodeType = 'url' | 'text' | 'vcard' | 'email' | 'sms' | 'wifi' | 'facebook' | 'twitter' | 'crypto'
@@ -81,6 +83,7 @@ export default function QRCodeGenerator({
   initialType = 'url',
   heading = 'Qrafty - generate QR code in 5 seconds',
 }: { initialType?: QRCodeType; heading?: string } = {}) {
+  const router = useRouter()
   const [qrType, setQrType] = useState<QRCodeType>(initialType)
   // Дефолтная ссылка осмысленна только для url — на странице текста она бы мешала.
   const [qrString, setQrString] = useState(initialType === 'text' ? '' : 'https://qrafty.cutbg.org/')
@@ -414,9 +417,21 @@ export default function QRCodeGenerator({
     setDownloadFormat(val)
   }
 
+  // Смена типа ведёт на страницу этого типа, а не просто меняет состояние.
+  // Иначе адрес врёт про содержимое: открыл /wifi-…, переключил на vCard —
+  // форма vCard, а в строке по-прежнему wifi, и такую ссылку можно кому-то
+  // отправить. Наборы полей у типов всё равно несовместимы, так что сброс
+  // при переходе — ожидаемое поведение, а не потеря.
+  // 'url' отдельной страницы не имеет: главная и есть генератор ссылок.
   const handleQRTypeChange = (type: QRCodeType) => {
-    setQrType(type)
     logEvent(analytics, AnalyticsEvents.qr_type_change, { type })
+    const target = qrTools.find((t) => t.type === type)
+    const href = target ? `/${target.slug}` : '/'
+    if (href === window.location.pathname) {
+      setQrType(type)
+      return
+    }
+    router.push(href)
   }
 
   const renderFormFields = () => {
