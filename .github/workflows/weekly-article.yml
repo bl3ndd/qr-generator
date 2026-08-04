@@ -1,0 +1,30 @@
+name: Weekly SEO article
+
+on:
+  schedule:
+    - cron: '0 9 * * 3' # каждую среду 09:00 UTC — не в один день с cutbg,
+                        # чтобы два сайта не публиковались одновременно
+  workflow_dispatch: {} # плюс ручной запуск из вкладки Actions
+
+jobs:
+  write:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm install --no-save @anthropic-ai/sdk gray-matter
+      - name: Generate article
+        run: node scripts/write-article.mjs
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      - name: Commit new article
+        run: |
+          git config user.name "bl3ndd"
+          git config user.email "56427966+bl3ndd@users.noreply.github.com"
+          git add src/content/en
+          git diff --staged --quiet || git commit -m "content: weekly SEO article"
+          git push
