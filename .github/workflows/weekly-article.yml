@@ -16,11 +16,14 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-      - run: npm install --no-save @anthropic-ai/sdk gray-matter
+      - run: npm install --no-save @anthropic-ai/sdk gray-matter google-auth-library
       - name: Generate article
         run: node scripts/write-article.mjs
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          # Темы берутся из реального спроса. Если секрета нет или API недоступен —
+          # скрипт откатывается на придуманную тему, а не падает.
+          GSC_SERVICE_ACCOUNT_JSON: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON }}
       - name: Commit new article
         run: |
           git config user.name "bl3ndd"
