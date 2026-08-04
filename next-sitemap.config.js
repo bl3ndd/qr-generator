@@ -1,10 +1,15 @@
-const basePaths = [
-  '', // главная страница — `/[locale]`
-  '/blog/how-to-create-qr-code-online',
-  '/blog/qrafty-new-functionality',
-  '/blog/qr-code-types-update',
-  '/donate',
-]
+const fs = require('fs')
+const path = require('path')
+
+// Слаги статей берём из файлов, а не списком руками: иначе новая статья
+// не попадает в сайтмап, пока кто-нибудь не вспомнит дописать её сюда.
+const contentDir = path.join(__dirname, 'src', 'content', 'en')
+const blogPaths = fs.existsSync(contentDir)
+  ? fs
+      .readdirSync(contentDir)
+      .filter((f) => f.endsWith('.md'))
+      .map((f) => `/blog/${f.replace(/\.md$/, '')}`)
+  : []
 
 module.exports = {
   siteUrl: 'https://qrafty.cutbg.org',
@@ -21,16 +26,10 @@ module.exports = {
     }
   },
 
-  additionalPaths: async (config) => {
-    const allPaths = []
-
-    for (const basePath of basePaths) {
-      const fullPath = `/${basePath}`
-      allPaths.push(await config.transform(config, fullPath))
-    }
-
-    return allPaths
-  },
+  // Только динамические роуты. Статические (/, /blog, /donate) next-sitemap
+  // находит сам по сборке — раньше они дублировались отсюда же вручную,
+  // из-за чего /donate попадал в сайтмап дважды.
+  additionalPaths: async (config) => Promise.all(blogPaths.map((p) => config.transform(config, p))),
 
   robotsTxtOptions: {
     policies: [

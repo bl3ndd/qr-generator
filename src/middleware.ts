@@ -1,25 +1,26 @@
-// middleware.js (или middleware.ts в корне проекта)
-
 import { NextResponse } from 'next/server'
+import type { NextRequest } from 'next/server'
 
-export default function middleware(request) {
+// Локализованные версии свёрнуты, их URL уводим на корень, чтобы не отдавать 404
+// по адресам, которые Google успел проиндексировать.
+//
+// Раньше здесь стоял шаблон /^\/[a-z]{2}(\/|$)/i — он ловил ЛЮБОЙ путь из двух
+// букв, а не только локали. Любая будущая короткая страница (/qr, /vc) молча
+// уезжала бы на главную. Поэтому список кодов теперь явный.
+const LOCALES = [
+  'cn', 'de', 'en', 'es', 'fr', 'hi', 'id', 'it', 'ja', 'kk',
+  'ko', 'ky', 'ms', 'pt', 'ru', 'th', 'tr', 'uz', 'vi',
+]
+
+export default function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl
-  // Проверяем, если путь начинается с локали вида /en, /fr, /de и т.п.
-  // Предположим, что локали - это двухбуквенные коды (или другой шаблон).
-  const localePattern = /^\/[a-z]{2}(\/|$)/i
+  const first = pathname.split('/')[1]?.toLowerCase()
 
-  if (localePattern.test(pathname)) {
-    // Если путь содержит локаль, делаем редирект на корень сайта "/"
+  if (first && LOCALES.includes(first)) {
     const url = request.nextUrl.clone()
     url.pathname = '/'
-    return NextResponse.redirect(url)
+    return NextResponse.redirect(url, 308)
   }
 
-  // Для остальных путей пропускаем
   return NextResponse.next()
-}
-
-// Чтобы middleware применялся ко всем путям, экспортируйте config
-export const config = {
-  matcher: '/:path*', // применить ко всем путям
 }
